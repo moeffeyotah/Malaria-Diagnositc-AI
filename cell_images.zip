@@ -1,0 +1,477 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  
+
+
+  
+  <title>LHNCBC Full Download List</title>
+  <link rel="stylesheet" href="/assets/uswds-2.4.0/css/uswds.min.css" />
+  <link rel="stylesheet" href="/assets/stylesheets/LHC_main.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+ 
+<script src="https://assets.nlm.nih.gov/jquery/jquery-latest.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+
+
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-59GQ6JK');</script>
+<!-- End Google Tag Manager -->
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-59GQ6JK"
+height="0" width="0" style="display:none;visibility:hidden" title="googletagmanager"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+  <div class="usa-overlay"></div>
+  
+  
+  <header class="usa-header usa-header--extended insertheader">
+  
+    
+
+  
+
+
+ 
+   
+  
+    
+    <div class="usa-nav-layout grid-row">
+<!--
+<div class="shutdown text-white">
+<p>Because of a lapse in government funding, the information on this website may not be up to date, transactions submitted via the website may not be processed, and the agency may not be able to respond to inquiries until appropriations are enacted.<br>
+The NIH Clinical Center (the research hospital of NIH) is open. For more details about its operating status, please visit <a href="https://cc.nih.gov/" target="_blank" class="text-white text-underline">cc.nih.gov</a>.<br>
+Updates regarding government operating status and resumption of normal operations can be found at <a href="https://www.opm.gov/" target="_blank" class="text-white text-underline">OPM.gov</a>.</p>
+</div>
+-->
+     <div class="usa-logo grid-col-10" id="extended-logo">
+
+      <div class="header-logo" style="line-height:1rem;">
+        <div class="display-flex flex-row flex-align-center">
+            <div>
+              <a href="https://www.nih.gov"><img src="/assets/images/logo-NIH-block.png" alt="NIH logo chevron"></a>
+            </div>    
+            <div class="display-flex flex-column">
+              <a href="https://www.nlm.nih.gov">
+                <img src="/assets/images/logo-NLM-block.png" alt="portion of logo that reads National Library of Medicine">
+              </a>
+              <a href="/index.html">
+                <img src="/assets/images/logo-LHC-block.png" alt="portion of logo that reads Lister Hill National Center for Biomedical Communications">
+              </a>
+            </div>
+        </div>
+
+      <!--div class="header-logo"-->
+        <!--object type="image/svg+xml"  data="/assets/images/LHNCBC_white.png" class="logo"></object-->
+
+      </div>
+    </div>
+    <div class="LHC-menu grid-col-2 display-flex flex-row flex-justify-end flex-align-center">
+      <button class="usa-menu-btn"><i class="fas fa-bars fa-2x" title="3 bar menu button"></i></button>
+    </div>
+  </div>
+
+    <nav aria-label="Primary navigation" class="usa-nav">
+      <div class="usa-nav__inner">
+        <button class="usa-nav__close"><img src="/assets/images/close.svg" alt="close"></button>
+        <div class="nav-container">
+          <ul class="usa-nav__primary usa-accordion">
+            <li class="usa-nav__primary-item">
+                  <a class="usa-nav__link researchButton" href="/LHC-research/projects-current.html"><span>PROJECTS</span></a>
+                </li>
+             <li class="usa-nav__primary-item">
+              <a class="usa-nav__link publicationsButton" href="/LHC-publications/publications.html"><span>PUBLICATIONS</span></a>
+            </li>
+            <li class="usa-nav__primary-item">
+              <a class="usa-nav__link downloadsButton" href="/LHC-downloads/downloads.html"><span>DOWNLOADS</span></a>
+            </li>
+
+            <li class="usa-nav__primary-item">
+              <button class="usa-accordion__button usa-nav__link aboutButton" aria-expanded="false"
+                aria-controls="extended-nav-section-six"><span>ABOUT</span>
+              </button>
+              <ul id="extended-nav-section-six" class="usa-nav__submenu" hidden>
+                <li class="usa-nav__submenu-item">
+                  <a href="/LHC-about/about.html">About LHNCBC</a>
+                </li>
+                <li class="usa-nav__submenu-item">
+                  <a href="/LHC-about/directors-page.html">Meet the Director</a>
+                </li>
+                <li class="usa-nav__submenu-item">
+                  <a href="/LHC-about/branches.html">LHNCBC Branches</a>
+                </li>
+                <li class="usa-nav__submenu-item">
+                  <a href="https://www.nih.gov/about-nih/visitor-information" target="_blank">Visit LHNCBC</a>
+                </li>
+              </ul>
+          </ul>
+        </div>
+
+        <div class="usa-nav__secondary">
+          
+          
+                     <form class="usa-search usa-search--small" method="GET" action="/search-results.html" target="_self" name="search" id="search" onsubmit="try{return velocityFormSubmit(this, event);}catch(e){}">
+                <div role="search">
+                  <label class="usa-sr-only" for="extended-search-field-small">Search small</label>
+                  <input class="usa-input" id="extended-search-field-small" type="search" name="query" placeholder="Search Lister Hill Center...">
+                  <button class="usa-button bg-accent-warm" type="submit"><span class="usa-sr-only">Search</span></button>
+                </div>
+              </form>
+          
+                  </div>
+      </div>
+    </nav>
+
+  </header>
+      
+
+
+  <div class="front_page">
+    <div class="usa-layout padding-y-4">
+      <div class="grid-row grid-gap">
+  
+        <div class="LHC-sidenav tablet:grid-col-3">
+        
+          <h6 class="usa-heading-alt">DOWNLOADS</h6>
+          <nav aria-label="Secondary navigation">
+          
+            <ul class="usa-sidenav">
+ <li class="usa-sidenav__item">
+<a href="/LHC-downloads/downloads.html" target="_self" class="usa-current">Full Download list</a>
+<ul class="usa-sidenav__sublist"> 
+  
+ 
+ 
+<li class="usa-sidenav__item">
+<a href="/LHC-downloads/api.html" target="_self">API</a>
+</li> 
+   
+ 
+ 
+<li class="usa-sidenav__item">
+<a href="/LHC-downloads/dataset.html" target="_self">Dataset</a>
+</li> 
+   
+ 
+ 
+<li class="usa-sidenav__item">
+<a href="/LHC-downloads/mobile-app.html" target="_self">Mobile App</a>
+</li> 
+   
+ 
+ 
+<li class="usa-sidenav__item">
+<a href="/LHC-downloads/software.html" target="_self">Software</a>
+</li> 
+   
+ 
+ 
+<li class="usa-sidenav__item">
+<a href="/LHC-downloads/tutorial.html" target="_self">Tutorial</a>
+</li> 
+   
+ 
+ 
+<li class="usa-sidenav__item">
+<a href="/LHC-downloads/web-interface.html" target="_self">Web Interface</a>
+</li> 
+ 
+</ul> 
+  
+            </li></ul>
+          </nav>
+        </div>
+          <div class="desktop:grid-col-9">
+<p>DOWNLOADS</p>
+  
+   
+  
+            <div class="grid-container pt-2 px-0">
+              <div class="grid-row pt-2">
+<div class="desktop:grid-col-12">
+<div id="page-content" class="page-content desktop:grid-col-12">&nbsp;<div class="staff-expertise">
+
+<div class="usa-accordion"><div class="usa-accordion usa-accordion--bordered"><h2 class="usa-accordion__heading"><button class="usa-accordion__button" aria-expanded="false" aria-controls="project-a418">Chest X-ray Screening System: Segmentation Module – v3</button></h2><div id="project-a418" class="usa-accordion__content usa-prose margin-0" hidden=""><p class="project-text"></p><p class="project-text"><span style="text-decoration: underline;"><strong>Atlas-based lung boundary detection module (MATLAB Code) </strong></span></p>
+<p class="project-text">We present to you software developed as part of the following article:</p>
+<p class="project-text">Candemir S, Jaeger S, Palaniappan K, Musco JP, Singh RK, Xue Z, Karargyris A, Antani S, Thoma G, McDonald CJ. Lung segmentation in chest radiographs using anatomical atlases with nonrigid registration. IEEE Trans Med Imaging. 2014 Feb; 33(2):577-90. <a title="External Link: Please review our privacy policy" href="https://doi.org/10.1109/TMI.2013.2290491">doi: 10.1109/TMI.2013.2290491</a>. PMID: 24239990</p>
+<p class="project-text">We request that you cite the paper if this code is used for publications or product.</p>
+<p class="project-text"><span style="text-decoration: underline;"><strong>The software contains the following assets: </strong></span></p>
+<p class="project-text"><strong>- LungSegment_module.m:</strong> performs the lung segmentation on CXRs.</p>
+<p class="project-text"><strong>- Patient_Xrays:</strong> folder contain patient X-ray to be segmented. Please locate your test X-rays in this folder. The X-ray image can be in DICOM, TIFF, PNG, BMP, or JPEG file formats.</p>
+<p class="project-text"><strong>- Model_Xrays:</strong> folder contain example X-rays, their corresponding lung masks, vertical, and horizontal profiles. These X-rays and lung masks are used during registration process.</p>
+<p class="project-text"><strong>- Model_h.mat and Model_v.mat:</strong> precomputed profiles for model x-rays.</p>
+<p class="project-text"><strong>- TEST.m:</strong> to test the system, please run this function.&nbsp;</p>
+<p class="project-text"><strong> - subfunctions:</strong> CEB_polygionCurveEvolution.m, cebShape2Spline.m, f_removeBlackBorderds.m, f_RemoveSmallSegments.m, FindSimilarCXR.m, fitSpline.m, read_Xray.m, read_Xray.m, read_X_Mask.m, RegisterModel.m, SmoothBoundary.m (please refer code comments for these functions. )</p>
+<p class="project-text">The system is developed using MATLAB version 8.4 on 64-bit Intel architecture running Windows 7 operating system.</p>
+<p class="project-text"><strong>- Employed functions:</strong> mexDenseSIFT(m, mex), mesDiscreteFlow(m,mex), SIFTflowc2f.m functions are employed from the &ldquo;SIFT Flow: Dense Correspondence across Scenes and Its applications&rdquo;. Please use the <a title="External Link: Please review our privacy policy" href="http://people.csail.mit.edu/celiu/SIFTflow/">http://people.csail.mit.edu/celiu/SIFTflow/</a> website to download the latest version of these functions. Do not forget citing the SIFTFlow paper.</p>
+<p class="project-text"><span style="text-decoration: underline;"><strong>How to run:</strong></span></p>
+<ol>
+<li>Download and unpack the zip file containing the code here.</li>
+<li>Locate your CXRs in the Patient X-ray folder.</li>
+<li>Run the TEST.m function. The binary lung masks will be computed for each patient X-ray. The masks will be the same size as patient X-ray.</li>
+<li>Adjust parameters to obtain better results for your CXRs.</li>
+</ol>
+<p class="project-text"><span style="text-decoration: underline;"><strong>Contact:</strong></span> <a href="/LHC-personnel/staff/StefanJaeger.html">Stefan Jaeger </a></p>
+<p class="project-text"><a href="https://data.lhncbc.nlm.nih.gov/public/Lung-Segmentation-Code/Segmentation_Module_Version_2017_11_04.zip">Download</a></p><p>&nbsp;</p><p></p><br></div></div></div><div class="usa-accordion"><div class="usa-accordion usa-accordion--bordered"><h2 class="usa-accordion__heading"><button class="usa-accordion__button" aria-expanded="false" aria-controls="project-a80">Clinical Table Search Service</button></h2><div id="project-a80" class="usa-accordion__content usa-prose margin-0" hidden=""><p class="project-text"></p><p class="project-text">Clinical Table Search Service (formerly "lforms-service") is a web service which software programs can use for querying clinical data tables.
+<br><br>
+View the <a href="https://clinicaltables.nlm.nih.gov/" title="Clinical Table Search Service API page">Clinical Table Search Service API</a>
+</p><p>&nbsp;</p><p></p><br></div></div></div><div class="usa-accordion"><div class="usa-accordion usa-accordion--bordered"><h2 class="usa-accordion__heading"><button class="usa-accordion__button" aria-expanded="false" aria-controls="project-a1206">CORE Problem List of SNOMED CT</button></h2><div id="project-a1206" class="usa-accordion__content usa-prose margin-0" hidden=""><p class="project-text"></p><p class="project-text">The CORE (Clinical Observations Recording and Encoding) Problem List Subset identifies important clinical concepts in SNOMED CT that occur frequently in the problem list. It facilitates the use of SNOMED CT for clinical documentation at the summary level.</p>
+<ul>
+<li>Dataset: <a href="http://www.nlm.nih.gov/research/umls/Snomed/core_subset.html">http://www.nlm.nih.gov/research/umls/Snomed/core_subset.html</a></li>
+</ul><p>&nbsp;</p><p></p><br></div></div></div><div class="usa-accordion"><div class="usa-accordion usa-accordion--bordered"><h2 class="usa-accordion__heading"><button class="usa-accordion__button" aria-expanded="false" aria-controls="project-a81">CSpell API</button></h2><div id="project-a81" class="usa-accordion__content usa-prose margin-0" hidden=""><p class="project-text"></p><p class="project-text">CSpell, a distributable spell checker for consumer language, is designed to detect and correct various types of spelling errors in Consumer Health Questions.
+<br><br>
+Download <a href="https://lhncbc.nlm.nih.gov/LSG/Projects/CSpell/web/download.html" title="Cspell download page">CSpell</a>.</p><p>&nbsp;</p><p></p><br></div></div></div><div class="usa-accordion"><div class="usa-accordion usa-accordion--bordered"><h2 class="usa-accordion__heading"><button class="usa-accordion__button" aria-expanded="false" aria-controls="project-a3">Development of an AI-based smart imagery framing and truthing (SIFT) system to annotate pulmonary abnormalities with corresponding boundaries based on CT images</button></h2><div id="project-a3" class="usa-accordion__content usa-prose margin-0" hidden=""><p class="project-text"></p>Clinically significant pulmonary abnormalities, like tuberculosis, nodules, and chronic obstructive pulmonary disease (COPD), hinder lung function. As a non-invasive diagnostic tool, radiology can identify various pulmonary conditions. Artificial intelligence (AI) advancements, particularly deep learning-based applications, have improved the efficiency and accuracy of radiological examinations. However, creating accurate AI models is still challenging due to the requirement for extensive manual annotation. To address this, we propose Smart Imagery Framing and Truthing (SIFT) to assist annotators in labeling and delineating pulmonary abnormalities and corresponding boundaries on CT images. Integrating Mask-RCNN, the system is developed on a training dataset of 9,078 CT images with 166,724 slices and 18,367 regions of interest (ROIs) corresponding to 47 different abnormalities/diseases. The proposed system processes an independent testing set with 2,199 CT images containing 40,493 slices and 4,280 ROIs by predicting both abnormality/disease types and corresponding ROI boundary locations. Two senior radiologists (≥ 30 years of radiological experience) delineated each image of training and testing sets in a double-blinded way, and their intersection area functioned as the ground truth. Evaluation metrics include intersection over union (IOU) value calculated based on the ROI area and the ground truth, the area under the ROC curve (AUC), and sensitivity on the slice-level of abnormality label category. For ROI segmentation, the results showed that 91.5% and 36.2% abnormalities had an IOU over 0.6 and 0.7, respectively. Regarding the metric of AUC of classification, there were 97.9%, 80.9%, and 42.6% of abnormalities whose AUC values were above 0.7, 0.8 and 0.9, respectively. For the sensitivity metric, all 47 label categories exceeded 0.8, and 68.1% (32/47) exceeded 0.9. SIFT demonstrates high performance in determining abnormality/disease types with corresponding boundary locations for the ROIs, which can be used to predict training and testing sets to develop AI technologies.<p>&nbsp;</p><p></p><br></div></div></div><div class="usa-accordion"><div class="usa-accordion usa-accordion--bordered"><h2 class="usa-accordion__heading"><button class="usa-accordion__button" aria-expanded="false" aria-controls="project-a12">Empirical Antonym Implementation in the UMLS SPECIALIST Lexicon</button></h2><div id="project-a12" class="usa-accordion__content usa-prose margin-0" hidden=""><p class="project-text"></p>Antonyms are words that have opposite or contrasting meanings in a specific domain. For example, "increase" is the opposite of "decrease" in the domain of "quantity". Antonyms play an important role in NLP applications to improve performance. This paper describes a systematic approach to generate antonyms. We developed five source models using negation rules, derivational morphology, co-occurrences in a corpus and semantic networks. As a result, 13K of canonical antonyms along with their associated features, such as bounded types, canonical domains, and negations are generated. They are released with the SPECIALIST Lexicon 2025 to provide broad coverage of antonyms with comprehensive features needed for NLP applications. Finally, analyses on antonym sources, canonicity, Part-of-Speech, domains and usage of types and negation are reported.<p>&nbsp;</p><p></p><br></div></div></div><div class="usa-accordion"><div class="usa-accordion usa-accordion--bordered"><h2 class="usa-accordion__heading"><button class="usa-accordion__button" aria-expanded="false" aria-controls="project-a13">Generating Multiwords from Verb Complementation Types in the Lexicon</button></h2><div id="project-a13" class="usa-accordion__content usa-prose margin-0" hidden=""><p class="project-text"></p><p>&nbsp;</p><p></p><br></div></div></div><div class="usa-accordion"><div class="usa-accordion usa-accordion--bordered"><h2 class="usa-accordion__heading"><button class="usa-accordion__button" aria-expanded="false" aria-controls="project-a942">I-Magic SNOMED-CT to ICD-10-CM code mapping tool</button></h2><div id="project-a942" class="usa-accordion__content usa-prose margin-0" hidden=""><p class="project-text"></p><p class="project-text">The I-MAGIC (Interactive Map-Assisted Generation of ICD Codes) Algorithm utilizes the SNOMED CT to ICD-10-CM Map in a real-time, interactive manner to generate ICD-10-CM codes. This demo simulates a problem list interface in which the user enters problems with SNOMED CT terms, which are then used to derive ICD-10-CM codes using the Map.</p>
+<p class="project-text">The Map can be used in the following scenarios:</p>
+<ol>
+<li><strong>Real-time use by the healthcare provider</strong> &ndash; In this scenario, the Map is embedded in the problem list application of the EHR used by the physician or other healthcare provider. At the end of a clinic encounter, the clinician updates the problem list, which is encoded in SNOMED CT. The Map-enabled problem list application outputs a list of ICD-10-CM codes based on algorithmic evaluation of map rules, which makes use of patient context (e.g. age, gender) and co-morbidities (other problems on the problem list) to identify the most appropriate candidate ICD-10-CM codes, in accordance with ICD-10-CM coding guidelines and conventions. If necessary, the clinician is prompted for additional information to decide between alternative codes, or to refine the output codes. The clinician confirms the suggested ICD-10-CM codes. (See the <a  href="http://imagic.nlm.nih.gov/imagic/code/map">I-MAGIC algorithm and demo page</a>)</li>
+<li><strong>Retrospective coding by coding professionals</strong> &ndash; In this scenario, the Map is used within an application to suggest candidate ICD-10-CM codes to coding professionals based on a stored SNOMED CT encoded problem list. The degree of automation can vary. Textual advice can be displayed in cases where automated rule processing is not available.</li>
+</ol>
+<ul>
+<li>Web Interface: <a href="http://imagic.nlm.nih.gov/imagic/code/map">http://imagic.nlm.nih.gov/imagic/code/map</a></li>
+<li>I-MAGIC Implementation Guide: <a href="http://www.nlm.nih.gov/research/umls/mapping_projects/IMAGICImplementationGuide_20120614.pdf">http://www.nlm.nih.gov/research/umls/mapping_projects/IMAGICImplementationGuide_20120614.pdf</a></li>
+<li>About the SNOMED CT to ICD-10-CM map: <a  href="http://www.nlm.nih.gov/research/umls/mapping_projects/snomedct_to_icd10cm.html">http://www.nlm.nih.gov/research/umls/mapping_projects/snomedct_to_icd10cm.html</a></li>
+</ul><p>&nbsp;</p><p></p><br></div></div></div><div class="usa-accordion"><div class="usa-accordion usa-accordion--bordered"><h2 class="usa-accordion__heading"><button class="usa-accordion__button" aria-expanded="false" aria-controls="project-a935">ICD-9-CM to SNOMED CT Map</button></h2><div id="project-a935" class="usa-accordion__content usa-prose margin-0" hidden=""><p class="project-text"></p><p class="project-text">Many existing electronic health record (EHR) systems contain clinical information encoded in ICD-9-CM. To facilitate migration to SNOMED CT as the primary clinical terminology for patient problems (diseases and conditions), it is desirable that the legacy ICD-9-CM data be translated to SNOMED CT. This will make it possible to compare newly collected data with historic data, and will also allow the EHR to make use of SNOMED CT to provide clinical decision support and other functions. The goal of the ICD-9-CM to SNOMED CT Map (herein referred to as &ldquo;the Map&rdquo;) is to facilitate the translation of legacy data and the transition to prospective use of SNOMED CT for patient problem lists. Note that this Map is not the same as, and serves different purposes from, the <a title="archive of SNOMED CT to ICD-9-CM Map" href="https://wayback.archive-it.org/org-350/20181102175616/https://www.nlm.nih.gov/research/umls/mapping_projects/snomedct_to_icd9cm_reimburse.html">SNOMED CT to ICD-9-CM Map</a>.</p>
+<p class="project-text">The most useful mappings are the one-to-one maps, in which a single SNOMED CT concept can be used to represent the full meaning of an ICD-9-CM code. This allows the automatic translation of ICD-9-CM codes into SNOMED CT codes without loss of meaning. The Map tries to identify as many one-to-one maps as possible, however, due to the differences between the two coding systems, one-to-one maps cannot be found for some ICD-9-CM codes. This difference is usually due to one of two reasons. Firstly, in ICD-9-CM, some codes are &ldquo;catch-all&rdquo; codes that encompass heterogeneous diseases or conditions (e.g. pneumonia due to other specified bacteria). These codes, commonly known as &ldquo;NEC codes&rdquo; (not elsewhere classified codes), will not have one-to-one maps because of their nature. Secondly, since SNOMED CT is more granular than ICD-9-CM in most disease areas, some ICD-9-CM diseases or conditions are further refined as more specific concepts in SNOMED CT. For such cases, it is not possible to map to a more specific SNOMED CT concept without the input of additional information.</p>
+<p class="project-text">The Map is published in two separate files, one containing the one-to-one maps, and the other the one-to-many maps. Also included in the files are the usage frequency of the ICD-9-CM codes, and the usage frequency of the SNOMED CT concepts from the <a href="http://www.nlm.nih.gov/research/umls/Snomed/core_subset.html">CORE Problem List Subset</a> data. The latter information can help users to identify the more commonly used SNOMED CT targets in the one-to-many maps.</p>
+<p class="project-text"><strong>Mapping Methodology</strong><br />Two lists were obtained from the Centers for Medicare &amp; Medicaid Services (CMS), covering commonly used ICD-9-CM codes in short-stay and outpatient hospitals respectively, for the year 2009. SNOMED CT maps for the ICD-9-CM codes in the lists were derived primarily from two existing knowledge sources: the synonymy between ICD-9-CM and SNOMED CT terms in the Unified Medical Language System (UMLS), and the SNOMED CT to ICD-9-CM Cross Maps published in the International release of SNOMED CT. The choice of target SNOMED CT codes was limited to concepts in three hierarchies: Clinical finding, Situation with explicit context, and Events. One-to-one maps identified by UMLS synonymy were not manually validated. One-to-many maps that were algorithmically identified which involved less than 5 SNOMED CT targets were manually reviewed, with the intention to reduce them to one-to-one maps if possible. ICD-9-CM codes with no maps, or one-to-many maps involving a large number of targets were not manually reviewed.</p>
+<ul>
+<li>Dataset: <a href="http://www.nlm.nih.gov/research/umls/mapping_projects/icd9cm_to_snomedct.html">http://www.nlm.nih.gov/research/umls/mapping_projects/icd9cm_to_snomedct.html</a></li>
+</ul><p>&nbsp;</p><p></p><br></div></div></div><div class="usa-accordion"><div class="usa-accordion usa-accordion--bordered"><h2 class="usa-accordion__heading"><button class="usa-accordion__button" aria-expanded="false" aria-controls="project-a82">LexAccess API</button></h2><div id="project-a82" class="usa-accordion__content usa-prose margin-0" hidden=""><p class="project-text"></p><p class="project-text">LexAccess is a lexical access tool in the SPECIALIST Lexicon family. LexAccess is developed to integrate with LexBuild and provide access to the information from the SPECIALIST lexicon.
+<br><br>
+<a href="https://lhncbc.nlm.nih.gov/LSG/Projects/LexAccess/current/web/download.html" title="LexAccess download page">Download LexAccess</a></p><p>&nbsp;</p><p></p><br></div></div></div><div class="usa-accordion"><div class="usa-accordion usa-accordion--bordered"><h2 class="usa-accordion__heading"><button class="usa-accordion__button" aria-expanded="false" aria-controls="project-a83">LexCheck</button></h2><div id="project-a83" class="usa-accordion__content usa-prose margin-0" hidden=""><p class="project-text"></p><p class="project-text">LexCheck is a software package to check and auto-correct the syntax and contents of Lexical record(s) in the LEXICON based on the technical report of "The SPECIALIST LEXICON".
+<br><br>
+<a href="https://lhncbc.nlm.nih.gov/LSG/Projects/LexCheck/current/web/download.html" title="LexCheck download page">Download LexCheck</a></p><p>&nbsp;</p><p></p><br></div></div></div><div class="usa-accordion"><div class="usa-accordion usa-accordion--bordered"><h2 class="usa-accordion__heading"><button class="usa-accordion__button" aria-expanded="false" aria-controls="project-a115">Lexical Tools</button></h2><div id="project-a115" class="usa-accordion__content usa-prose margin-0" hidden=""><p class="project-text"></p><p class="project-text">The SPECIALIST lexical tools are a set of JAVA programs designed to help users manage lexical variation in biomedical text. The tools use information from the SPECIALIST lexicon and other data to generate lexical variants of words or terms appropriate for use in indexing and other NLP applications.</p>
+
+<p><a href="https://lhncbc.nlm.nih.gov/LSG/Projects/lvg/current/web/download.html">Download the Lexical Tools</a></p><p>&nbsp;</p><p></p><br></div></div></div><div class="usa-accordion"><div class="usa-accordion usa-accordion--bordered"><h2 class="usa-accordion__heading"><button class="usa-accordion__button" aria-expanded="false" aria-controls="project-a116">Lexical Web Tools</button></h2><div id="project-a116" class="usa-accordion__content usa-prose margin-0" hidden=""><p class="project-text"></p><p class="project-text">The SPECIALIST lexical tools are a set of JAVA programs designed to help users manage lexical variation in biomedical text. The tools use information from the SPECIALIST lexicon and other data to generate lexical variants of words or terms appropriate for use in indexing and other NLP applications.</p>
+<p>Try <a href="https://lvgwebtools.nlm.nih.gov/WebLvg/jsp/global/cMenu.jsp" title="Lexical Web Tools">Lexical Web Tools</a> online.</p><p>&nbsp;</p><p></p><br></div></div></div><div class="usa-accordion"><div class="usa-accordion usa-accordion--bordered"><h2 class="usa-accordion__heading"><button class="usa-accordion__button" aria-expanded="false" aria-controls="project-a58">Lung Masks of a Subset of Chest X-ray Images from the NLM Open-i® Indiana Dataset</button></h2><div id="project-a58" class="usa-accordion__content usa-prose margin-0" hidden=""><p class="project-text"></p><p><strong>Background:</strong></p>
+<p>Lung region detection in chest radiographs is an important early step in a machine learning (ML) pipeline for pulmonary disease screening and diagnosis. We are providing a dataset of lung masks with corresponding 55 frontal images (contrast enhanced) that have been subset from the NLM Open-i Indiana chest x-ray dataset (<a href="https://openi.nlm.nih.gov/faq#collection">https://openi.nlm.nih.gov/faq#collection</a>). This data set was first used in the publication below [1].</p>
+
+<p><strong>Reference:</strong></p>
+<p><ol>
+<li>Xue Z, Yang F, Rajaraman S, Zamzmi G, Antani S, “Cross Dataset Analysis of Domain Shift in CXR Lung Region Detection”, Diagnostics 2023.</li>
+</ol></p>
+
+<a href="https://data.lhncbc.nlm.nih.gov/public/chest-xray/indiana.zip">Download the dataset</a><p>&nbsp;</p><p></p><br></div></div></div><div class="usa-accordion"><div class="usa-accordion usa-accordion--bordered"><h2 class="usa-accordion__heading"><button class="usa-accordion__button" aria-expanded="false" aria-controls="project-a400">Malaria Screener</button></h2><div id="project-a400" class="usa-accordion__content usa-prose margin-0" hidden=""><p class="project-text"></p><a href="/LHC-research/LHC-projects/image-processing/malaria-datasheet.html" title="Malaria Screener datasheet"
+    class="usa-button text-white">Malaria Screener datasheet</a> Details of datasets and download links
+<p class="project-text">This page hosts a repository of <em>P. vivax</em> and <em>P. falciparum</em> images in both thin
+    and thick blood smears from the Malaria Screener research activity. </p>
+<p class="project-text">To reduce the burden for microscopists in resource-constrained regions and improve diagnostic
+    accuracy, researchers at the Lister Hill National Center for Biomedical Communications (LHNCBC), part of National
+    Library of Medicine (NLM), have developed a mobile application, called “Malaria Screener”, which runs on a standard
+    Android smartphone attached to a conventional light microscope. The smartphone's built-in camera acquired images of
+    slides for each microscopic field of view. The images were manually annotated by an expert slide reader at the
+    Mahidol-Oxford Tropical Medicine Research Unit in Bangkok, Thailand. The de-identified images and annotations are
+    archived at NLM (IRB#12972).</p>
+<p class="project-text">The dataset includes five main parts:
+    <ul>
+        <li class="project-text">
+            Giemsa-stained thick blood smear slides from 150 P. falciparum-infected patients were collected and photographed at Chittagong Medical College Hospital, Bangladesh. We have developed the first deep learning method that can detect P. falciparum parasites in thick blood smear images and can run on smartphones, which consists of two modules: an intensity-based Iterative Global Minimum Screening (IGMS) module for parasite candidate screening and a customized CNN classifier for final classification. The data was published along with the following publication:<br><br>
+Yang F, Poostchi M, Yu H, Zhou Z, Silamut K, Yu J, Maude RJ, Jaeger S, Antani S. Deep Learning for Smartphone-Based Malaria Parasite Detection in Thick Blood Smears. IEEE J Biomed Health Inform. 2020 May;24(5):1427-1438.
+(URL: <a title="External Link: Please review our privacy policy" href="https://ieeexplore.ieee.org/document/8846750">https://ieeexplore.ieee.org/document/8846750</a> )
+        </li>
+        <li class="project-text">
+            Giemsa-stained thick blood smear slides from 150 P. vivax-infected patients and 50 uninfected patients were collected and photographed at Chittagong Medical College Hospital, Bangladesh. Based on a dataset of 350 malaria patients, we proposed PlasmodiumVF-Net to diagnose a patients as uninfected, P. vivax-infected, or P. falciparum-infected. The data was published along with the publication:<br><br>
+Kassim Y M, Yang F, Yu H, Maude R J, Jaeger S. Diagnosing Malaria Patients with Plasmodium falciparum and vivax Using Deep Learning for Thick Smear Images. Diagnostic, 11(11):1994, 2021.
+(URL: <a title="External Link: Please review our privacy policy" href="https://www.mdpi.com/2075-4418/11/11/1994">https://www.mdpi.com/2075-4418/11/11/1994</a> )
+        </li>
+        <li class="project-text">
+            Giemsa-stained thin blood smear slides from 148 P. falciparum-infected, and 45 uninfected patients were collected and photographed at Chittagong Medical College Hospital, Bangladesh. We proposed RBCNet that consists of a U-Net first stage for cell-cluster or super pixel segmentation, followed by a second refinement stage Faster R-CNN for detecting small cell objects within the connected component clusters. The corresponding publication is:<br><br>
+            Kassim YM, Palaniappan K, Yang F, Poostchi M, Palaniappan N, Maude RJ, Antani S, Jaeger S. Clustering-Based Dual Deep Learning Architecture for Detecting Red Blood Cells in Malaria Diagnostic Smears. IEEE J Biomed Health Inform. 2021 May;25(5):1735-1746.
+            (URL: <a title="External Link: Please review our privacy policy" href="https://ieeexplore.ieee.org/document/9244549">https://ieeexplore.ieee.org/document/9244549</a> )
+        </li>
+        <li class="project-text">
+            Giemsa-stained thin blood smear slides from 171 P. vivax-infected patients were collected and photographed in Bangkok, Thailand. We developed a rapid and robust diagnosis system for the automated detection of P. vivax parasites using a cascaded YOLO model. This system consists of a YOLOv2 model and a classifier for hard-negative mining; see the following publication:<br><br>
+            Yang F, Quizon N, Silamut K, Maude RJ, Jaeger S, Antani SK. Cascading YOLO: Automated Malaria Parasite Detection for Plasmodium Vivax in Thin Blood Smears. Proc. SPIE 11314, Medical Imaging 2020: Computer-Aided Diagnosis, 113141Q (16 March 2020);
+            (URL: <a title="External Link: Please review our privacy policy" href="https://doi.org/10.1117/12.2549701">https://doi.org/10.1117/12.2549701</a> )
+        </li>
+        <li class="project-text">
+            We acquired cell images from 150 P. falciparum-infected and 50 uninfected patients in Giemsa-stained thin blood smears that were collected and photographed at Chittagong Medical College Hospital, Bangladesh. The dataset contains a total of 27,558 cell images with equal instances of parasitized and uninfected cells. An instance of how the patient-ID is encoded into the cell name is shown herewith: “P1” denotes the patient-ID for the cell labeled “C33P1thinF_IMG_20150619_114756a_cell_179.png”. We have also included the CSV files containing the Patient-ID to cell mappings for the parasitized and uninfected classes. The CSV file for the parasitized class contains 151 patient-ID entries. The slide images for the parasitized patient-ID “C47P8thinOriginal” are read from two different microscope models (Olympus and Motif). The CSV file for the uninfected class contains 201 entries since the normal cells from the infected patients’ slides are also in the normal cell category (151+50 = 201). Experiments with the data were reported in the following paper (PeerJ6:e4568):<br><br>
+            Rajaraman S, Antani SK, Poostchi M, Silamut K, Hossain MA, Maude, RJ, Jaeger S, Thoma GR. (2018) Pre-trained convolutional neural networks as feature extractors toward improved Malaria parasite detection in thin blood smear images.
+            (URL: <a title="External Link: Please review our privacy policy" href="https://doi.org/10.7717/peerj.4568">https://doi.org/10.7717/peerj.4568</a> )
+        </li>
+    </ul>
+    Each dataset includes a separate readme file describing the dataset and annotation files.
+</p>
+<p class="project-text">
+<a href="/LHC-research/LHC-projects/image-processing/malaria-datasheet.html" title="Malaria Screener datasheet"
+    class="usa-button text-white">Malaria Screener datasheet</a> Details of datasets and download links
+</p>
+
+
+<p class="project-text padding-top-2">
+    <a href="https://github.com/nlm-malaria/MalariaScreener" title="Malaria Screener Github Repository"
+    class="usa-button text-white">Malaria Screener Github Repository <i class="fas fa-external-link-alt text-white padding-left-1"></i></a> Access source code of Malaria Screener
+</p>
+
+<p class="project-text padding-top-2">
+    <a href="https://play.google.com/store/apps/details?id=gov.nih.nlm.malaria_screener&hl=en_US&pli=1" title="Malaria Screener App"
+    class="usa-button text-white">Malaria Screener App <i class="fas fa-external-link-alt text-white padding-left-1"></i></a> Download Malaria Screener from the Google Play store
+</p>
+
+<p class="project-text"><a href="/LHC-research/LHC-projects/image-processing/malaria-project.html">Malaria project page</a></p><p>&nbsp;</p><p></p><br></div></div></div><div class="usa-accordion"><div class="usa-accordion usa-accordion--bordered"><h2 class="usa-accordion__heading"><button class="usa-accordion__button" aria-expanded="false" aria-controls="project-a117">MEDLINE n-gram set</button></h2><div id="project-a117" class="usa-accordion__content usa-prose margin-0" hidden=""><p class="project-text"></p><p class="project-text">The MEDLINE n-gram set is used to retrieve multiwords for building the SPECIALIST lexicon. Lexical Systems Group (LSG) would like to share this n-gram set (n = 1 ~ 5) with NLP|MLP community. Please download from the following link.</p>
+<p><a href="https://lhncbc.nlm.nih.gov/LSG/Projects/nGram/index.html" title="MEDLINE n-gram set">MEDLINE n-gram set</a></p><p>&nbsp;</p><p></p><br></div></div></div><div class="usa-accordion"><div class="usa-accordion usa-accordion--bordered"><h2 class="usa-accordion__heading"><button class="usa-accordion__button" aria-expanded="false" aria-controls="project-a1503">MeSH on Demand</button></h2><div id="project-a1503" class="usa-accordion__content usa-prose margin-0" hidden=""><p class="project-text"></p>MeSH on Demand identifies MeSH® terms in your submitted text (abstract or manuscript). MeSH on Demand also lists PubMed similar articles relevant to your submitted text.
+
+<p class="project-text"><strong>URL: </strong><a href="https://meshb.nlm.nih.gov/MeSHonDemand" target="_blank" rel="noopener">https://meshb.nlm.nih.gov/MeSHonDemand</a></p><p>&nbsp;</p><p></p><br></div></div></div><div class="usa-accordion"><div class="usa-accordion usa-accordion--bordered"><h2 class="usa-accordion__heading"><button class="usa-accordion__button" aria-expanded="false" aria-controls="project-a655">NLM-Scrubber</button></h2><div id="project-a655" class="usa-accordion__content usa-prose margin-0" hidden=""><p class="project-text"></p><p class="project-text">Narrative clinical reports contain a rich set of clinical knowledge that could be invaluable for clinical research. However, they usually contain personal identifiers. The presence of personal identifiers in clinical reports renders the contents of those reports as protected health information, which is associated with use restrictions and risks to privacy. The Privacy Rule of Health Insurance Portability and Accountability Act (HIPAA) requires that clinical documents be stripped of personally identifying information before they can be released to researchers and others. Our solution, <a href="https://lhncbc.nlm.nih.gov/scrubber/">NLM-Scrubber</a>, is a HIPAA compliant, clinical text de-identification tool designed and developed at the National Library of Medicine. It is freely available.</p><p>&nbsp;</p><p></p><br></div></div></div><div class="usa-accordion"><div class="usa-accordion usa-accordion--bordered"><h2 class="usa-accordion__heading"><button class="usa-accordion__button" aria-expanded="false" aria-controls="project-a1030">Nursing Problem List Subset of SNOMED CT</button></h2><div id="project-a1030" class="usa-accordion__content usa-prose margin-0" hidden=""><p class="project-text"></p><p class="project-text">The main purpose of the Nursing Problem List Subset of SNOMED CT is to facilitate the use of SNOMED CT as the primary coding terminology for nursing problems used in care planning, problem lists, or other summary level clinical documentation.</p>
+<ul>
+<li>Dataset: <a  href="http://www.nlm.nih.gov/research/umls/Snomed/nursing_problemlist_subset.html">http://www.nlm.nih.gov/research/umls/Snomed/nursing_problemlist_subset.html</a></li>
+</ul><p>&nbsp;</p><p></p><br></div></div></div><div class="usa-accordion"><div class="usa-accordion usa-accordion--bordered"><h2 class="usa-accordion__heading"><button class="usa-accordion__button" aria-expanded="false" aria-controls="project-a896">Prescribable RxNorm API</button></h2><div id="project-a896" class="usa-accordion__content usa-prose margin-0" hidden=""><p class="project-text"></p><p class="project-text">The <a href="http://www.nlm.nih.gov/research/umls/rxnorm/docs/prescribe.html">RxNorm Current Prescribable Content</a> is a subset of currently prescribable drugs found in RxNorm. We intend it to be an approximation of the prescription drugs currently marketed in the US. The subset also includes some frequently-prescribed over-the-counter drugs.</p>
+<p class="project-text">The subset includes only the active RxNorm normalized names, codes (RxCUIs), attributes, and relationships, as well as the FDA structured product label drugs and ingredients. It does not include data from any of the other 10 RxNorm data providers, such as First DataBank, Micromedex, or the Veterans Administration. We also removed suppressed and obsolete data.</p>
+<p class="project-text">The National Library of Medicine provides this subset without any licensing restrictions. You do not need to log into the UMLS Terminology Services to access the subset.</p>
+<p class="project-text">The <a href="https://lhncbc.nlm.nih.gov/RxNav/APIs/PrescribableAPIs.html">RxNorm Prescribable API</a> is a web service for accessing the RxNorm Current Prescribable Content from your program.</p>
+<ul>
+<li>API&#58; <a href="https://lhncbc.nlm.nih.gov/RxNav/APIs/PrescribableAPIs.html">https://lhncbc.nlm.nih.gov/RxNav/APIs/PrescribableAPIs.html</a></li>
+<li>Learn More About the RxNorm Prescribable Content&#58; <a href="http://www.nlm.nih.gov/research/umls/rxnorm/docs/prescribe.html">http://www.nlm.nih.gov/research/umls/rxnorm/docs/prescribe.html</a></li>
+</ul><p>&nbsp;</p><p></p><br></div></div></div><div class="usa-accordion"><div class="usa-accordion usa-accordion--bordered"><h2 class="usa-accordion__heading"><button class="usa-accordion__button" aria-expanded="false" aria-controls="project-a84">RxClass</button></h2><div id="project-a84" class="usa-accordion__content usa-prose margin-0" hidden=""><p class="project-text"></p><p class="project-text">The <a href="https://mor.nlm.nih.gov/RxClass/" title="RxClass browser">RxClass Browser</a> is a web application for exploring and navigating through the class hierarchies to find the RxNorm drug members associated with each class.<br><br>
+The <a href="https://lhncbc.nlm.nih.gov/RxNav/APIs/RxClassAPIs.html" title="RxClass API">RxClass API</a> is available for users to include RxClass data in their applications.</p><p>&nbsp;</p><p></p><br></div></div></div><div class="usa-accordion"><div class="usa-accordion usa-accordion--bordered"><h2 class="usa-accordion__heading"><button class="usa-accordion__button" aria-expanded="false" aria-controls="project-a930">RxMix</button></h2><div id="project-a930" class="usa-accordion__content usa-prose margin-0" hidden=""><p class="project-text"></p><p class="project-text"><strong>RxMix has been updated!</strong> RxMix is a web application that allows users to combine functions from the RxNorm, NDF-RT and RxTerms APIs to create custom applications that can be run interactively or in a batch mode.</p>
+<ul>
+<li><strong>Function composition.</strong> The RxMix interface allows the user to build a workflow of API functions to execute. This saves the user from having to write complex programs to handle multiple function calls. Examples of function composition are contained in the examples below.</li>
+<li><strong>Batch processing.</strong> Through the user interface, RxMix allows the user to process large amounts of data through the user defined workflow. The user can provide a file containing a list of inputs, such as drug names or drug identifiers, for input to the workflow. RxMix will execute the workflow and inform the user via email when the job has completed, providing information on how to retrieve the results.</li>
+<li><strong>Output in XML, JSON or Text.</strong> RxMix offers the user the choice of formatting the output in XML, JSON, or text.</li>
+<li><strong>Interactive mode.</strong> RxMix allows users to interactively test and display the results of the workflow on a single input value.</li>
+</ul>
+<p class="project-text">Users of the RxMix interface should be familiar with the <a title="RxNorm" href="http://rxnav.nlm.nih.gov/RxNormAPIs.html#label:apiRef">RxNorm</a>, <a title="NDF-RT" href="http://rxnav.nlm.nih.gov/RxClassAPIs.html">NDF-RT</a> and/or the <a title="RxTerms API functions" href="http://rxnav.nlm.nih.gov/RxTermsAPIs.html#label:apiRef">RxTerms API functions</a>.</p>
+<p class="project-text">**Note: <strong>RxMix will not work properly with Internet Explorer</strong>. Please use FireFox, Chrome or Safari to run RxMix.</p>
+<ul>
+<li>Web interface: <a href="http://mor.nlm.nih.gov/RxMix/">http://mor.nlm.nih.gov/RxMix/</a></li>
+<li>Learn More: <a  href="http://rxnav.nlm.nih.gov/RxMixTutorial.html">http://rxnav.nlm.nih.gov/RxMixTutorial.html</a></li>
+<li>RxMix Tutorial Batch Example: <a href="http://rxnav.nlm.nih.gov/RxMixTutorial2.html">http://rxnav.nlm.nih.gov/RxMixTutorial2.html</a></li>
+</ul><p>&nbsp;</p><p></p><br></div></div></div><div class="usa-accordion"><div class="usa-accordion usa-accordion--bordered"><h2 class="usa-accordion__heading"><button class="usa-accordion__button" aria-expanded="false" aria-controls="project-a1703">RxNav</button></h2><div id="project-a1703" class="usa-accordion__content usa-prose margin-0" hidden=""><p class="project-text"></p><p class="project-text">RxNav is a browser for several drug information sources, including RxNorm, RxTerms and NDF-RT. RxNav finds drugs in RxNorm from the names and codes in its constituent vocabularies. RxNav displays links from clinical drugs, both branded and generic, to their active ingredients, drug components and related brand names. RxNav also provides lists of NDC codes and links to package inserts in DailyMed. The RxTerms record for a given drug can be accessed through RxNav, as well as clinical information from NDF-RT, including pharmacologic classes, mechanisms of action, and physiologic effects.</p>
+<ul>
+<li>Web Interface: <a  href="https://mor.nlm.nih.gov/RxNav/">https://mor.nlm.nih.gov/RxNav/</a></li>
+</ul><p>&nbsp;</p><p></p><br></div></div></div><div class="usa-accordion"><div class="usa-accordion usa-accordion--bordered"><h2 class="usa-accordion__heading"><button class="usa-accordion__button" aria-expanded="false" aria-controls="project-a85">RxNav-in-a-Box</button></h2><div id="project-a85" class="usa-accordion__content usa-prose margin-0" hidden=""><p class="project-text"></p><p class="project-text">RxNav-in-a-Box provides users with a locally-installable Docker composition of RxNav, RxClass, RxMix, and RESTful companion APIs, including RxNorm, Prescribable RxNorm, RxTerms, and RxClass.
+<br><br>
+Go to <a href="https://lhncbc.nlm.nih.gov/RxNav/applications/RxNav-in-a-Box.html" title="RxNav-in-a-Box web page">RxNav-in-a-Box</a></p><p>&nbsp;</p><p></p><br></div></div></div><div class="usa-accordion"><div class="usa-accordion usa-accordion--bordered"><h2 class="usa-accordion__heading"><button class="usa-accordion__button" aria-expanded="false" aria-controls="project-a86">RxNorm API</button></h2><div id="project-a86" class="usa-accordion__content usa-prose margin-0" hidden=""><p class="project-text"></p><p class="project-text">The RxNorm API is a web service for accessing information from the RxNorm data set.
+<br><br>
+Go to the <a href="https://lhncbc.nlm.nih.gov/RxNav/APIs/RxNormAPIs.html" title="RxNorm API page">RxNorm API</a></p><p>&nbsp;</p><p></p><br></div></div></div><div class="usa-accordion"><div class="usa-accordion usa-accordion--bordered"><h2 class="usa-accordion__heading"><button class="usa-accordion__button" aria-expanded="false" aria-controls="project-a1094">RxTerms</button></h2><div id="project-a1094" class="usa-accordion__content usa-prose margin-0" hidden=""><p class="project-text"></p><p class="project-text">RxTerms is a drug interface terminology derived from RxNorm for prescription writing or medication history recording (e.g. in e-prescribing systems, PHRs). An API is available to provide developers with functions for retrieving RxTerms data from the most current RxTerms data set.</p>
+<ul>
+<li>API&#58; <a  href="https://lhncbc.nlm.nih.gov/RxNav/APIs/RxTermsAPIs.html">https://lhncbc.nlm.nih.gov/RxNav/APIs/RxTermsAPIs.html</a></li>
+<li>Learn More About RxTerms&#58; <a href="https://lhncbc.nlm.nih.gov/MOR/RxTerms/">https://lhncbc.nlm.nih.gov/MOR/RxTerms/</a></li>
+</ul><p>&nbsp;</p><p></p><br></div></div></div><div class="usa-accordion"><div class="usa-accordion usa-accordion--bordered"><h2 class="usa-accordion__heading"><button class="usa-accordion__button" aria-expanded="false" aria-controls="project-a1109">SNOMED CT Route of Administration Subset</button></h2><div id="project-a1109" class="usa-accordion__content usa-prose margin-0" hidden=""><p class="project-text"></p><p class="project-text">The Route of Administration subset of SNOMED CT is a listing of the current set of terms related to the location of administration for clinical therapeutics.</p>
+<ul>
+<li>Dataset: <a title="archive of SNOMED CT Route of Administration Subset" href="https://wayback.archive-it.org/org-350/20181102172604/https://www.nlm.nih.gov/research/umls/Snomed/roa_subset.html">SNOMED CT Route of Administration Subset</a></li>
+</ul><p>&nbsp;</p><p></p><br></div></div></div><div class="usa-accordion"><div class="usa-accordion usa-accordion--bordered"><h2 class="usa-accordion__heading"><button class="usa-accordion__button" aria-expanded="false" aria-controls="project-a849">SNOMED CT to ICD-10 Cross Map</button></h2><div id="project-a849" class="usa-accordion__content usa-prose margin-0" hidden=""><p class="project-text"></p><p class="project-text"><strong>SNOMED CT to ICD-10 Cross Maps (created and maintained by IHTSDO) -</strong> support epidemiological, statistical, and administrative reporting.</p>
+<p class="project-text">The map is updated and included with every International release of SNOMED CT which can be downloaded here. <a href="http://www.nlm.nih.gov/research/umls/licensedcontent/snomedctfiles.html">http://www.nlm.nih.gov/research/umls/licensedcontent/snomedctfiles.html</a></p><p>&nbsp;</p><p></p><br></div></div></div><div class="usa-accordion"><div class="usa-accordion usa-accordion--bordered"><h2 class="usa-accordion__heading"><button class="usa-accordion__button" aria-expanded="false" aria-controls="project-a922">SNOMED CT to ICD-10-CM Map</button></h2><div id="project-a922" class="usa-accordion__content usa-prose margin-0" hidden=""><p class="project-text"></p><p class="project-text"><strong>Mapping SNOMED CT codes to and from ICD codes</strong></p>
+<p class="project-text">SNOMED CT is clinically-based, and oriented for direct use by healthcare providers, to document whatever is needed for patient care. ICD codes are oriented more for coding professionals to use after patient care has already been provided, for statistical data collection and billing. ICD codes lump less common diseases together in "catch-all" categories, for example, J15.8 Pneumonia due to other specified bacteria, which could result in loss of information. SNOMED Ct has more "granular" (specific) clinical coverage than ICD:SNOMED CT (clinical finding) has 100,000 codes, ICD-10-CM has 68,000 codes, and ICD-9-CM has 14,000 codes.</p>
+<p class="project-text">Due to the differences in granularity, emphasis and organizing principles between SNOMED CT and ICD-10-CM, it is not always possible to have a one-to-one map between a SNOMED CT concept and an ICD-10-CM code. To address this challenge, the SNOMED CT to ICD-10-CM Map follows an approach that is consistent with the approach used by the IHTSDO and WHO.&nbsp; When there is a need to choose between alternative ICD-10-CM codes, each possible target code is represented as a &ldquo;map rule&rdquo; (the essence of &ldquo;rule-based mapping&rdquo;). Related map rules are grouped into a &ldquo;map group&rdquo;. Map rules within a map group are evaluated in a prescribed order at run-time, based on contextual information and co-morbidities. Each map group will resolve to at most one ICD-10-CM code. In the event that a SNOMED CT concept requires more than one ICD-10-CM code to fully represent its meaning, the map will consist of multiple map groups.</p>
+<p class="project-text">We have created the<strong> SNOMED CT to ICD-10-CM Map</strong> to support semi-automated generation of ICD-10-CM codes from clinical data encoded in SNOMED CT for reimbursement and statistical purposes.</p>
+<ul>
+<li>Download: <a href="http://www.nlm.nih.gov/research/umls/mapping_projects/snomedct_to_icd10cm.html">http://www.nlm.nih.gov/research/umls/mapping_projects/snomedct_to_icd10cm.html</a><br />
+<ul style="margin-left: 40px;">
+<li>Latest release in September 2014 provides ICD-10-CM maps for 54,262 SNOMED CT concepts</li>
+<li>Third release (35,000 SNOMED CT concepts mapped to ICD-10-CM) is anticipated for June 2013.</li>
+<li>Second release was in July 2012 (15,000 SNOMED CT concepts mapped to ICD-10-CM).</li>
+<li>First release was in February 2012 (7000 SNOMED CT concepts mapped to ICD-10-CM).</li>
+</ul>
+</li>
+</ul><p>&nbsp;</p><p></p><br></div></div></div><div class="usa-accordion"><div class="usa-accordion usa-accordion--bordered"><h2 class="usa-accordion__heading"><button class="usa-accordion__button" aria-expanded="false" aria-controls="project-a114">SPECIALIST Lexicon</button></h2><div id="project-a114" class="usa-accordion__content usa-prose margin-0" hidden=""><p class="project-text"></p><p class="project-text">The SPECIALIST lexicon is a large syntactic lexicon of biomedical and general English, designed/developed to provide the lexical information needed for the SPECIALIST Natural Language Processing System (NLP) which includes SemRep, MetaMap, and the Lexical Tools. It is intended to be a general English lexicon that includes many biomedical terms. Coverage includes both commonly occurring English words and biomedical vocabulary from a variety of sources.</p>
+
+<p><a href="https://lhncbc.nlm.nih.gov/LSG/Projects/lexicon/current/web/release/">Download the SPECIALIST Lexicon</a></p><p>&nbsp;</p><p></p><br></div></div></div><div class="usa-accordion"><div class="usa-accordion usa-accordion--bordered"><h2 class="usa-accordion__heading"><button class="usa-accordion__button" aria-expanded="false" aria-controls="project-a87">Sub-Term Mapping Tools</button></h2><div id="project-a87" class="usa-accordion__content usa-prose margin-0" hidden=""><p class="project-text"></p><p class="project-text">The Sub-Term Mapping Tools (STMT) is a generic tool set that provides comprehensive sub-term related features:
+<ul>
+<li>to find all sub-terms</li>
+<li>to find all prefix sub-terms</li>
+<li>to find the longest prefix sub-term</li>
+<li>to find all sub-term patterns</li>
+<li>to find all permutations of synonymous sub-term substitutions (query expansion)</li>
+</ul>
+
+Download the <a href="https://lhncbc.nlm.nih.gov/LSG/Projects/Stmt/web/download.html" title="Sub-Term Mapping Tools download page">Sub-Term Mapping Tools</a></p><p>&nbsp;</p><p></p><br></div></div></div><div class="usa-accordion"><div class="usa-accordion usa-accordion--bordered"><h2 class="usa-accordion__heading"><button class="usa-accordion__button" aria-expanded="false" aria-controls="project-a88">Unified Code for Units of Measure (UCUM) Validation & Conversion API</button></h2><div id="project-a88" class="usa-accordion__content usa-prose margin-0" hidden=""><p class="project-text"></p><p class="project-text">This is a set of web services (APIs) for programs to use when working with units from the Unified Code for Units of Measure (UCUM) system.
+<br><br>
+Go to the <a href="https://ucum.nlm.nih.gov/ucum-service.html" title="Unified Code for Units of Measure (UCUM) Validation and Conversion API page">Unified Code for Units of Measure (UCUM) Validation and Conversion API</a></p><p>&nbsp;</p><p></p><br></div></div></div><div class="usa-accordion"><div class="usa-accordion usa-accordion--bordered"><h2 class="usa-accordion__heading"><button class="usa-accordion__button" aria-expanded="false" aria-controls="project-a2052">Visible Human Project Reference Data Sets</button></h2><div id="project-a2052" class="usa-accordion__content usa-prose margin-0" hidden=""><p class="project-text"></p><p class="project-text">The publicly-available Visible Human Project reference data sets are complete, anatomically detailed, three-dimensional representations of normal male and female human bodies. They include transverse CT, MR, and cryosection images.&nbsp;The male was sectioned at one millimeter intervals, the female at one-third of a millimeter intervals. The data sets are used in education, diagnosis, treatment planning, virtual reality, and virtual surgeries.</p>
+<ul>
+<li>Description, access information, and license agreement documents: &nbsp;<u><a href="http://www.nlm.nih.gov/research/visible/getting_data.html">http://www.nlm.nih.gov/research/visible/getting_data.html</a></u></li>
+</ul><p>&nbsp;</p><p></p><br></div></div></div>
+
+ </div>
+           </div>
+         </div>
+      </div>
+ 
+</div></div>
+          </div>
+        </div>
+      </div>
+      
+      <script>
+      $( document ).ready(function() {
+      setTimeout(function() {
+        $( ".downloadsButton" ).removeClass( "downloadsButton" ).addClass( "usa-current" );
+       }, 500);
+      });
+</script> 
+<script src="/assets/javascript/downloadspage.js"></script> 
+  
+
+
+  <footer class="bg-primary text-white insertfooter">
+  
+  
+    <div class="grid-container">
+    <div class="grid-row">
+      <div class="desktop:grid-col-3 grid-col-6"> <a href="https://www.nlm.nih.gov/socialmedia/index.html">
+        <p class="text-white margin-bottom-1">Connect with NLM</p>
+        </a>
+        <ul class="social_media add-list-reset">
+          <li class="margin-right-05"><a href="https://www.facebook.com/nationallibraryofmedicine"><img class="bg-secondary" src="https://www.nlm.nih.gov/images/facebook.svg"  alt="Facebook"></a></li>
+          <li class="margin-right-05"><a title="External link: please review our privacy policy." href="https://www.linkedin.com/company/national-library-of-medicine-nlm/"><img class="bg-secondary" src="//www.nlm.nih.gov/images/linkedin.svg" alt="LinkedIn"></a></li>
+          <li class="margin-right-05"><a title="External link: please review our privacy policy." href="https://twitter.com/NLM_NIH"><img src="https://www.nlm.nih.gov/images/twitter.svg" class="padding-1 bg-secondary" alt="Twitter"></a></li>
+          <li class="margin-right-05"><a title="External link: please review our privacy policy." href="https://www.youtube.com/user/NLMNIH"><img src="//www.nlm.nih.gov/images/youtube.svg" class="bg-secondary" alt="You Tube"></a></li>
+        </ul>
+      </div>
+      <div class="desktop:grid-col-3 grid-col-6">
+        <p class="address_footer text-white"> National Library of Medicine <br>
+          <a href="https://www.google.com/maps/place/8600+Rockville+Pike,+Bethesda,+MD+20894/@38.9959508,-77.101021,17z/data=!3m1!4b1!4m5!3m4!1s0x89b7c95e25765ddb:0x19156f88b27635b8!8m2!3d38.9959508!4d-77.0988323" class="text-white"> 8600 Rockville Pike <br>
+          Bethesda, MD 20894 </a></p>
+      </div>
+      <div class="desktop:grid-col-3 grid-col-6">
+        <p><a href="//www.nlm.nih.gov//www.nlm.nih.gov/web_policies.html" class="text-white"> Web Policies </a><br>
+          <a href="https://www.nih.gov/institutes-nih/nih-office-director/office-communications-public-liaison/freedom-information-act-office" class="text-white"> FOIA </a><br>
+          <a href="https://www.hhs.gov/vulnerability-disclosure-policy/index.html" class="text-white">HHS Vulnerability Disclosure</a> </p>
+      </div>
+      <div class="desktop:grid-col-3 grid-col-6">
+        <p><a class="supportLink text-white" href="//support.nlm.nih.gov?from="> NLM Support Center </a> <br>
+          <a href="//www.nlm.nih.gov//www.nlm.nih.gov/accessibility.html" class="text-white"> Accessibility </a><br>
+          <a href="//www.nlm.nih.gov//www.nlm.nih.gov/careers/careers.html" class="text-white"> Careers </a></p>
+      </div>
+    </div>
+    <div class="grid-row">
+      <div class="grid-col-12">
+        <p class="text-center text-white"> <a class="text-white" href="//www.nlm.nih.gov/">NLM</a> | <a class="text-white" href="https://www.nih.gov/">NIH</a> | <a class="text-white" href="https://www.hhs.gov/">HHS</a> | <a class="text-white" href="https://www.usa.gov/">USA.gov</a></p>
+      </div>
+    </div>
+  </div>
+
+  
+   
+   </footer>
+<script>
+var dynHeader = "/lhcHeader.frag";
+</script>
+<script src="/assets/javascript/popper-1.14.7.min.js"></script>
+<script src="/assets/uswds-2.4.0/js/uswds.min.js"></script>
+<script src="/assets/javascript/headerfooter.js"></script>
+
+
+ 
+
+<script src="/assets/javascript/jquery.twbsPagination.min.js"></script>
+<script src="/assets/javascript/supportLink.js"></script>
+<script src="//www.nlm.nih.gov/core/nlm-notifyExternal/1.0/nlm-notifyExternal.min.js"></script> 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>  
+
