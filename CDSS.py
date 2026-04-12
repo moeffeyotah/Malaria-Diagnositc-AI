@@ -19,6 +19,11 @@ st.markdown("""
     /* Global Deep Blue Background */
     .stApp { background-color: #0F172A; color: #F1F5F9; }
 
+    button, [data-testid="stFileUploadDropzone"] p {
+        color: #000000 !important;
+        font-weight: 600;
+    }
+
     /* Make all standard text white */
     .stMarkdown, p, span, label { color: #F1F5F9 !important; }
 
