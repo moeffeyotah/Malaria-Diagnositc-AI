@@ -18,102 +18,62 @@ st.set_page_config(page_title="Malaria Diagnostic AI", page_icon="🔬", layout=
 st.markdown(
     """
     <style>
-    /* Base Application Theme: Clean Clinical Slate */
-    .stApp { background-color: #F8FAFC; color: #0F172A; }
+    /* 1. Global Branding & Background */
+    .stApp { background-color: #0F172A; color: #F8FAFC; }
     
-    /* Hide Streamlit Default Branding for SaaS feel */
-    #MainMenu {visibility: hidden;}
-    footer {visibility: hidden;}
-    header {visibility: hidden;}
+    /* 2. Hide Defaults */
+    #MainMenu {visibility: hidden;} footer {visibility: hidden;} header {visibility: hidden;}
     
-    /* Typography: Crisp, modern sans-serif for UI, tight letter spacing */
-    h1, h2, h3, h4, h5 { 
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
-        color: #0F172A; 
-        font-weight: 800; 
-        letter-spacing: -0.5px; 
-    }
-    
-    /* Master Class Header Styling */
+    /* 3. High-Authority Header */
     .stTitle { 
-        border-bottom: 4px solid #E02035; 
-        padding-bottom: 15px; 
-        margin-bottom: 30px;
-        text-transform: uppercase;
-        font-weight: 900;
+        border-bottom: 2px solid #E02035; 
+        padding-bottom: 10px; 
+        font-family: 'Inter', sans-serif;
+        letter-spacing: -1px;
+        color: #F1F5F9;
     }
 
-    /* Section Subheaders */
-    .section-header {
-        color: #334155;
-        font-size: 1.25rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        margin-bottom: 15px;
-        border-left: 4px solid #94A3B8;
-        padding-left: 10px;
-    }
-
-    /* Official Pathology Report Container */
+    /* 4. The "Pathology Report" (Parchment Effect) */
     .report-box {
-    background-color: #FFFFFF;
-    border-left: 10px solid #0F172A; /* Thick medical navy bar */
-    padding: 30px;
-    border-radius: 4px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    font-family: 'Courier New', Courier, monospace; /* Typewriter feel */
-}
-.report-header {
-    border-bottom: 2px solid #E2E8F0;
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-    font-weight: bold;
-}
+        background-color: #FCFBF7; /* Authentic medical paper color */
+        color: #1E293B;
+        padding: 40px;
+        border-radius: 2px;
+        border-top: 15px solid #0F172A;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+        font-family: 'Courier New', Courier, monospace;
+        line-height: 1.5;
+    }
 
-    /* Report Metadata Header */
-    .report-header {
-        border-bottom: 2px solid #E2E8F0;
-        margin-bottom: 25px;
-        padding-bottom: 15px;
+    /* 5. Diagnostic Alerts */
+    .section-header {
+        color: #94A3B8;
+        font-size: 0.9rem;
         font-weight: 800;
-        color: #475569;
         text-transform: uppercase;
         letter-spacing: 2px;
-        font-size: 1rem;
-        display: flex;
-        justify-content: space-between;
+        margin-top: 25px;
+        border-bottom: 1px solid #334155;
     }
 
-    /* Digital Signature Styling */
-    .report-footer {
-        font-size: 0.8em; 
-        border-top: 1px dashed #CBD5E1; 
-        padding-top: 15px;
-        margin-top: 30px;
-        color: #94A3B8;
-        font-weight: bold;
-        letter-spacing: 1px;
-        text-align: right;
-    }
-
-    /* Standardize Image Container */
-    [data-testid="stImage"] {
-        border-radius: 8px;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        overflow: hidden;
-        border: 1px solid #E2E8F0;
+    /* 6. Metric Styling (Glassmorphism) */
+    [data-testid="stMetric"] {
+        background: rgba(255, 255, 255, 0.05);
+        padding: 20px;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
     }
     
-    /* Enhance Metric Cards */
-    [data-testid="stMetricValue"] {
-        font-size: 2rem;
-        font-weight: 800;
+    [data-testid="stMetricValue"] { color: #00FF87 !important; font-weight: 900; }
+
+    /* 7. Image Specimen Frame */
+    [data-testid="stImage"] {
+        border: 4px solid #334155;
+        border-radius: 4px;
+        padding: 5px;
+        background: #1E293B;
     }
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
+</style>
 
 # Initialize API Client
 GENAI_API_KEY = "AIzaSyAFXzGD3tqdY9fFmgdBQmz_dvcELq6-nTY"
