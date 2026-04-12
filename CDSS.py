@@ -11,15 +11,21 @@ from PIL import Image
 from google import genai
 import datetime
 
-# --- 1. System Configuration & Premium UI ---
+# =============================================================================
+# 1. System Configuration & Premium UI Architecture
+# =============================================================================
 st.set_page_config(page_title="Malaria Diagnostic AI", page_icon="🔬", layout="wide")
 
+# This is the CLEAN fixed CSS
 st.markdown("""
-    st.markdown("""
     <style>
+    /* Global Deep Blue */
     .stApp { background-color: #0F172A; color: #F8FAFC; }
     
-    /* BLACK TEXT for Upload Button */
+    /* Global Text visibility */
+    .stMarkdown, p, span, label, h1, h2, h3 { color: #F8FAFC !important; }
+
+    /* BLACK TEXT for Upload Dropzone & Buttons */
     [data-testid="stFileUploadDropzone"] p, 
     button p, 
     .stFileUploader label { 
@@ -27,31 +33,37 @@ st.markdown("""
         font-weight: 700 !important; 
     }
 
-    /* WHITE TEXT for General UI */
-    .stMarkdown, p, span, label, h1, h2, h3 { color: #F8FAFC !important; }
-
-    /* PAPER EFFECT for Pathology Report */
+    /* THE PATHOLOGY REPORT (White Paper) */
     .report-box {
-        background-color: #FFFFFF; 
+        background-color: #FFFFFF !important; 
         color: #0F172A !important; 
         padding: 30px; 
         border-radius: 4px;
         border-left: 10px solid #E02035;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+        font-family: 'Courier New', Courier, monospace;
     }
+    /* Ensure all text INSIDE the report box is dark blue */
     .report-box * { color: #0F172A !important; }
+    
+    .report-header {
+        border-bottom: 2px solid #E2E8F0;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        font-weight: bold;
+    }
     </style>
     """, unsafe_allow_html=True)
 
-# --- 2. SECURE API Initialization ---
-# REPLACEMENT: Fetching from Secrets (Required for GitHub safety)
-# Initialize API Client SECURELY
+# =============================================================================
+# 2. SECURE API INITIALIZATION
+# =============================================================================
 try:
-    # We use the NICKNAME "GEMINI_API_KEY", not the actual key here.
+    # Use the VARIABLE NAME from your Streamlit Secrets tab
     client = genai.Client(api_key=st.secrets["GEMINI_API_KEY"])
 except Exception:
-    st.error("SYSTEM HALTED: Secure API Key not found in Secrets vault.")
+    st.error("🚨 SYSTEM HALTED: Secure API Key 'GEMINI_API_KEY' not found in Secrets vault.")
     st.stop()
-
 # --- 3. Vision Model Architecture ---
 @st.cache_resource
 def load_medical_model():
