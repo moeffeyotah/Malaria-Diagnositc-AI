@@ -15,50 +15,31 @@ import datetime
 st.set_page_config(page_title="Malaria Diagnostic AI", page_icon="🔬", layout="wide")
 
 st.markdown("""
+    st.markdown("""
     <style>
-    /* 1. Global Deep Blue Background */
-    .stApp { background-color: #0F172A; color: #F1F5F9; }
-
-    /* 2. Fix Upload Button Text Color (Make it Black) */
-    /* Streamlit uses buttons for file uploads and standard actions */
-    button, [data-testid="stFileUploadDropzone"] p {
-        color: #000000 !important;
-        font-weight: 600;
+    .stApp { background-color: #0F172A; color: #F8FAFC; }
+    
+    /* BLACK TEXT for Upload Button */
+    [data-testid="stFileUploadDropzone"] p, 
+    button p, 
+    .stFileUploader label { 
+        color: #000000 !important; 
+        font-weight: 700 !important; 
     }
 
-    /* 3. Global Text Visibility */
-    .stMarkdown, p, span, label { color: #F1F5F9 !important; }
+    /* WHITE TEXT for General UI */
+    .stMarkdown, p, span, label, h1, h2, h3 { color: #F8FAFC !important; }
 
-    /* 4. High-Authority Title */
-    .stTitle { 
-        border-bottom: 3px solid #E02035; 
-        padding-bottom: 10px; 
-        color: #FFFFFF !important; 
-        font-weight: 900;
-    }
-
-    /* 5. Metrics: Emerald Green for Primary Data */
-    [data-testid="stMetricValue"] { color: #10B981 !important; font-size: 2.5rem !important; }
-    [data-testid="stMetricLabel"] { color: #94A3B8 !important; }
-
-    /* 6. The Pathology Report (The "Parchment") */
-    /* We override text here back to dark blue for readability on white paper */
+    /* PAPER EFFECT for Pathology Report */
     .report-box {
         background-color: #FFFFFF; 
         color: #0F172A !important; 
-        padding: 30px;
+        padding: 30px; 
         border-radius: 4px;
         border-left: 10px solid #E02035;
     }
-    .report-box div, .report-box span, .report-box p { 
-        color: #0F172A !important; 
-    }
-    
-    .report-footer {
-        color: #64748B !important;
-        font-size: 0.8rem;
-    }
-</style>
+    .report-box * { color: #0F172A !important; }
+    </style>
     """, unsafe_allow_html=True)
 
 # --- 2. SECURE API Initialization ---
