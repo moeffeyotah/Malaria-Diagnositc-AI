@@ -18,42 +18,51 @@ st.set_page_config(page_title="Malaria Diagnostic AI", page_icon="🔬", layout=
 
 st.markdown("""
     <style>
-    /* 1. Global Deep Blue Background */
+    /* 1. Global Deep Blue & White Text */
     .stApp { background-color: #0F172A; color: #F8FAFC; }
-    
-    /* 2. THE UPLOAD BUTTON / DROPZONE */
-    /* Main text (Drag and drop) - Black */
-    [data-testid="stFileUploadDropzone"] p { 
-        color: #000000 !important; 
-        font-weight: 700 !important; 
-    }
-
-    /* 200MB Limit text and Upload Icon - WHITE */
-    [data-testid="stFileUploadDropzone"] small, 
-    [data-testid="stIcon"] { 
-        color: #FFFFFF !important; 
-    }
-
-    /* 3. BRANDING & NAMES - WHITE */
     .stMarkdown, p, span, label, h1, h2, h3 { color: #F8FAFC !important; }
+
+    /* 2. THE UPLOAD BUTTON / DROPZONE "HARD FIX" */
+    [data-testid="stFileUploadDropzone"] {
+        background-color: #1E293B !important; /* Slate Blue background */
+        border: 2px dashed #334155 !important;
+        border-radius: 10px;
+    }
     
-    /* Architect Name Highlight */
-    .engineer-name {
-        color: #94A3B8 !important;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        font-weight: 800;
+    /* "Drag and drop file here" - BLACK for high contrast on the small button */
+    [data-testid="stFileUploadDropzone"] button {
+        background-color: #F8FAFC !important;
+        color: #0F172A !important;
     }
 
-    /* 4. THE PATHOLOGY REPORT (White Paper) */
+    /* "Limit 200MB per file" and upload icon - PURE WHITE */
+    [data-testid="stFileUploadDropzone"] small, 
+    [data-testid="stIcon"],
+    .stFileUploader label p { 
+        color: #FFFFFF !important; 
+        opacity: 1 !important;
+    }
+
+    /* 3. ARCHITECT BRANDING */
+    .engineer-name {
+        color: #10B981 !important; /* Emerald green for your name */
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: 900;
+        font-size: 1.1rem;
+        margin-top: -20px;
+    }
+
+    /* 4. THE PATHOLOGY REPORT (Solid White Paper) */
     .report-box {
         background-color: #FFFFFF !important; 
-        padding: 30px; 
+        color: #0F172A !important; 
+        padding: 40px; 
         border-radius: 4px;
-        border-left: 10px solid #E02035;
-        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+        border-left: 12px solid #E02035;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
     }
-    /* Force all text inside report to Dark Blue/Black */
+    /* Re-force all text inside report to Dark Blue */
     .report-box * { color: #0F172A !important; }
     </style>
     """, unsafe_allow_html=True)
@@ -102,7 +111,8 @@ def generate_clinical_report(diagnosis, conf_pct):
 # --- 5. Main Logic ---
 st.title("🔬 AUTOMATED MALARIA DIAGNOSTICS")
 st.markdown('<p class="engineer-name">Senior Architect: Moses Mudiaga Effeyotah</p>', unsafe_allow_html=True)
-st.markdown("**INFO 6147 – Deep Learning with PyTorch Capstone**")
+st.markdown("**INFO 6147 – Deep Learning with PyTorch Capstone Project**")
+st.divider()
 
 uploaded_file = st.file_uploader("UPLOAD SPECIMEN", type=["jpg", "png", "jpeg"])
 
