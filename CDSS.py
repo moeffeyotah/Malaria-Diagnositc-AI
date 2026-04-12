@@ -149,14 +149,18 @@ if uploaded_file:
             report_text = f"CONNECTION ERROR: API link severed. Details: {str(e)}"
 
         timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S EST")
-        st.markdown(f"""
-            <div class="report-box">
-                <div style="border-bottom: 2px solid #E2E8F0; margin-bottom: 20px; font-weight: bold;">
-                    OFFICIAL PATHOLOGY REPORT | {timestamp}
-                </div>
-                {report_text}
-                <div style="font-size: 0.8em; border-top: 1px dashed #CCC; margin-top: 20px; text-align: right;">
-                    DIGITALLY SIGNED: CDSS-ALPHA VISION
-                </div>
-            </div>
-        """, unsafe_allow_html=True)
+        st.markdown(
+    f"""
+    <div class="report-box">
+        <div class="report-header">
+            <span>OFFICIAL PATHOLOGY REPORT - MALARIA SCREENING</span>
+            <span style="color: #94A3B8; font-size: 0.8rem;">{timestamp}</span>
+        </div>
+        {report_text}
+        <div style="font-size: 0.8em; border-top: 1px dashed #CBD5E1; margin-top: 30px; padding-top: 15px; color: #94A3B8; font-weight: bold; text-align: right;">
+            PATHOLOGIST OF RECORD: M. M. EFFEYOTAH | CDSS-ALPHA VISION SYSTEM
+        </div>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
