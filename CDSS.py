@@ -16,45 +16,47 @@ import datetime
 # =============================================================================
 st.set_page_config(page_title="Malaria Diagnostic AI", page_icon="🔬", layout="wide")
 
-# This is the CLEAN fixed CSS
 st.markdown("""
     <style>
-    /* Global Deep Blue */
+    /* 1. Global Deep Blue Background */
     .stApp { background-color: #0F172A; color: #F8FAFC; }
     
-    /* Global Text visibility */
-    .stMarkdown, p, span, label, h1, h2, h3 { color: #F8FAFC !important; }
-
-    /* BLACK TEXT for Upload Dropzone & Buttons */
-    [data-testid="stFileUploadDropzone"] p, 
-    button p, 
-    .stFileUploader label { 
+    /* 2. THE UPLOAD BUTTON / DROPZONE */
+    /* Main text (Drag and drop) - Black */
+    [data-testid="stFileUploadDropzone"] p { 
         color: #000000 !important; 
         font-weight: 700 !important; 
     }
 
-    /* THE PATHOLOGY REPORT (White Paper) */
+    /* 200MB Limit text and Upload Icon - WHITE */
+    [data-testid="stFileUploadDropzone"] small, 
+    [data-testid="stIcon"] { 
+        color: #FFFFFF !important; 
+    }
+
+    /* 3. BRANDING & NAMES - WHITE */
+    .stMarkdown, p, span, label, h1, h2, h3 { color: #F8FAFC !important; }
+    
+    /* Architect Name Highlight */
+    .engineer-name {
+        color: #94A3B8 !important;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 800;
+    }
+
+    /* 4. THE PATHOLOGY REPORT (White Paper) */
     .report-box {
         background-color: #FFFFFF !important; 
-        color: #0F172A !important; 
         padding: 30px; 
         border-radius: 4px;
         border-left: 10px solid #E02035;
         box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
-        font-family: 'Courier New', Courier, monospace;
     }
-    /* Ensure all text INSIDE the report box is dark blue */
+    /* Force all text inside report to Dark Blue/Black */
     .report-box * { color: #0F172A !important; }
-    
-    .report-header {
-        border-bottom: 2px solid #E2E8F0;
-        margin-bottom: 20px;
-        padding-bottom: 10px;
-        font-weight: bold;
-    }
     </style>
     """, unsafe_allow_html=True)
-
 # =============================================================================
 # 2. SECURE API INITIALIZATION
 # =============================================================================
@@ -99,7 +101,8 @@ def generate_clinical_report(diagnosis, conf_pct):
 
 # --- 5. Main Logic ---
 st.title("🔬 AUTOMATED MALARIA DIAGNOSTICS")
-st.markdown("**CDSS PIPELINE** | *ResNet-50 Vision + Gemini Synthesis*")
+st.markdown('<p class="engineer-name">Senior Architect: Moses Mudiaga Effeyotah</p>', unsafe_allow_html=True)
+st.markdown("**INFO 6147 – Deep Learning with PyTorch Capstone**")
 
 uploaded_file = st.file_uploader("UPLOAD SPECIMEN", type=["jpg", "png", "jpeg"])
 
