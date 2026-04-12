@@ -16,22 +16,34 @@ st.set_page_config(page_title="Malaria Diagnostic AI", page_icon="🔬", layout=
 
 st.markdown("""
     <style>
-    .stApp { background-color: #0F172A; color: #F8FAFC; }
-    #MainMenu {visibility: hidden;} footer {visibility: hidden;} header {visibility: hidden;}
-    .stTitle { border-bottom: 2px solid #E02035; padding-bottom: 10px; color: #F1F5F9; }
+    /* Global Deep Blue Background */
+    .stApp { background-color: #0F172A; color: #F1F5F9; }
+
+    /* Make all standard text white */
+    .stMarkdown, p, span, label { color: #F1F5F9 !important; }
+
+    /* High-Authority Header */
+    .stTitle { 
+        border-bottom: 3px solid #E02035; 
+        padding-bottom: 10px; 
+        color: #FFFFFF !important; 
+        font-weight: 900;
+    }
+
+    /* Metric Cards: Bright Emerald for visibility */
+    [data-testid="stMetricValue"] { color: #10B981 !important; font-size: 2.5rem !important; }
+    [data-testid="stMetricLabel"] { color: #94A3B8 !important; }
+
+    /* The Pathology Report: Keep as "Paper" for contrast */
     .report-box {
-        background-color: #FCFBF7; color: #1E293B; padding: 40px;
-        border-radius: 2px; border-top: 15px solid #0F172A;
-        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
-        font-family: 'Courier New', Courier, monospace; line-height: 1.5;
+        background-color: #FFFFFF; 
+        color: #0F172A !important; /* Dark text on white paper */
+        padding: 30px;
+        border-radius: 4px;
+        border-left: 10px solid #E02035;
     }
-    .section-header {
-        color: #94A3B8; font-size: 0.9rem; font-weight: 800;
-        text-transform: uppercase; letter-spacing: 2px;
-        margin-top: 25px; border-bottom: 1px solid #334155;
-    }
-    [data-testid="stMetricValue"] { color: #00FF87 !important; font-weight: 900; }
-    </style>
+    .report-box p, .report-box span { color: #0F172A !important; }
+</style>
     """, unsafe_allow_html=True)
 
 # --- 2. SECURE API Initialization ---
