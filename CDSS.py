@@ -116,7 +116,7 @@ st.markdown(
 )
 
 # Initialize API Client
-GENAI_API_KEY = "AIzaSyD6wJUWyvbvnsk0if-8F2OBvJLKfWsXqiw"
+GENAI_API_KEY = "AIzaSyAFXzGD3tqdY9fFmgdBQmz_dvcELq6-nTY"
 client = genai.Client(api_key=GENAI_API_KEY)
 
 
