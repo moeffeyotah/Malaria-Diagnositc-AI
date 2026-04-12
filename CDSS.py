@@ -65,9 +65,9 @@ st.markdown("""
 # REPLACEMENT: Fetching from Secrets (Required for GitHub safety)
 # Initialize API Client SECURELY
 try:
-    # This pulls the key from the Streamlit Dashboard, NOT the code
+    # We use the NICKNAME "GEMINI_API_KEY", not the actual key here.
     client = genai.Client(api_key=st.secrets["GEMINI_API_KEY"])
-except Exception as e:
+except Exception:
     st.error("SYSTEM HALTED: Secure API Key not found in Secrets vault.")
     st.stop()
 
