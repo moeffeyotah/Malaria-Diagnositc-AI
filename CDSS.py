@@ -126,8 +126,7 @@ def generate_clinical_report(diagnosis, confidence):
     prompt = f"""
     ROLE: Expert Clinical Hematologist.
     CONTEXT: Computer Vision analysis of a peripheral blood smear.
-    FINDINGS: {diagnosis} ({confidence:.2f}% System Confidence).
-
+    FINDINGS: {diagnosis} ({conf_pct:.2f}% System Confidence).
     TASK: Write a professional, concise clinical summary for the attending physician.
     Structure the response clearly with the following bolded sections:
     - **Clinical Summary:** - **Morphological Findings:** (Use terms like intracellular, erythrocytes, etc)
