@@ -56,18 +56,20 @@ st.markdown(
     }
 
     /* Official Pathology Report Container */
-    .report-box { 
-        padding: 40px; 
-        background-color: #FFFFFF;
-        border-radius: 8px;
-        border-left: 8px solid #E02035;
-        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        font-family: 'Menlo', 'Consolas', monospace; 
-        line-height: 1.7;
-        color: #1E293B;
-        font-size: 0.95rem;
-        margin-top: 20px;
-    }
+    .report-box {
+    background-color: #FFFFFF;
+    border-left: 10px solid #0F172A; /* Thick medical navy bar */
+    padding: 30px;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    font-family: 'Courier New', Courier, monospace; /* Typewriter feel */
+}
+.report-header {
+    border-bottom: 2px solid #E2E8F0;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    font-weight: bold;
+}
 
     /* Report Metadata Header */
     .report-header {
