@@ -16,18 +16,20 @@ st.set_page_config(page_title="Malaria Diagnostic AI", page_icon="🔬", layout=
 
 st.markdown("""
     <style>
-    /* Global Deep Blue Background */
+    /* 1. Global Deep Blue Background */
     .stApp { background-color: #0F172A; color: #F1F5F9; }
 
+    /* 2. Fix Upload Button Text Color (Make it Black) */
+    /* Streamlit uses buttons for file uploads and standard actions */
     button, [data-testid="stFileUploadDropzone"] p {
         color: #000000 !important;
         font-weight: 600;
     }
 
-    /* Make all standard text white */
+    /* 3. Global Text Visibility */
     .stMarkdown, p, span, label { color: #F1F5F9 !important; }
 
-    /* High-Authority Header */
+    /* 4. High-Authority Title */
     .stTitle { 
         border-bottom: 3px solid #E02035; 
         padding-bottom: 10px; 
@@ -35,19 +37,27 @@ st.markdown("""
         font-weight: 900;
     }
 
-    /* Metric Cards: Bright Emerald for visibility */
+    /* 5. Metrics: Emerald Green for Primary Data */
     [data-testid="stMetricValue"] { color: #10B981 !important; font-size: 2.5rem !important; }
     [data-testid="stMetricLabel"] { color: #94A3B8 !important; }
 
-    /* The Pathology Report: Keep as "Paper" for contrast */
+    /* 6. The Pathology Report (The "Parchment") */
+    /* We override text here back to dark blue for readability on white paper */
     .report-box {
         background-color: #FFFFFF; 
-        color: #0F172A !important; /* Dark text on white paper */
+        color: #0F172A !important; 
         padding: 30px;
         border-radius: 4px;
         border-left: 10px solid #E02035;
     }
-    .report-box p, .report-box span { color: #0F172A !important; }
+    .report-box div, .report-box span, .report-box p { 
+        color: #0F172A !important; 
+    }
+    
+    .report-footer {
+        color: #64748B !important;
+        font-size: 0.8rem;
+    }
 </style>
     """, unsafe_allow_html=True)
 
