@@ -68,30 +68,25 @@ def load_clinical_model():
     model = models.resnet50(weights=None)
     
     # 2. Load the state dictionary from the file securely
-    # Added weights_only=True for modern PyTorch security standards
     state_dict = torch.load("best_malaria_resnet.pth", map_location=device, weights_only=True)
     
     # 3. DYNAMIC ARCHITECTURE RECONSTRUCTION
-    # Check if the saved model used a Sequential block (fc.0 and fc.3)
     if 'fc.0.weight' in state_dict:
-        # Extract the exact node counts from the saved weights
         in_ftrs = state_dict['fc.0.weight'].shape[1]
         hidden_ftrs = state_dict['fc.0.weight'].shape[0]
         out_ftrs = state_dict['fc.3.weight'].shape[0]
         
-        # Rebuild the exact sequence used during training
         model.fc = nn.Sequential(
             nn.Linear(in_ftrs, hidden_ftrs),
             nn.ReLU(),
-            nn.Dropout(0.5), # Exact % doesn't matter since model.eval() turns dropout off
+            nn.Dropout(0.5), 
             nn.Linear(hidden_ftrs, out_ftrs)
         )
     else:
-        # Fallback to standard single-layer replacement just in case
         num_ftrs = model.fc.in_features
         model.fc = nn.Linear(num_ftrs, 2)
         
-    # 4. Now inject the weights into our perfectly matched architecture
+    # 4. Inject weights
     model.load_state_dict(state_dict)
     model.to(device)
     model.eval()
@@ -116,7 +111,6 @@ with col2:
     st.title("Malaria Diagnostic CDSS")
     st.markdown("<p style='color: #64748B; font-size: 1.2rem;'>Enterprise Vision Engine for Automated Pathology</p>", unsafe_allow_html=True)
 
-# 3.1 About & How to Use
 tab_about, tab_guide = st.expander("📖 About this AI Architecture"), st.expander("🛠 Clinical User Guide")
 
 with tab_about:
@@ -146,7 +140,8 @@ with col_input:
     
     if uploaded_file:
         image = Image.open(uploaded_file).convert('RGB')
-        st.image(image, caption="Original Patient Sample", use_container_width=True)
+        # Replaced deprecated use_container_width with use_column_width
+        st.image(image, caption="Original Patient Sample", use_column_width=True)
         
         if st.button("Execute Diagnostic Scan"):
             # Inference Pipeline
@@ -156,11 +151,12 @@ with col_input:
                 prob = torch.nn.functional.softmax(output, dim=1)
                 confidence, pred = torch.max(prob, 1)
             
-            # Store results in session state for the output column
+            # Store results AND THE FILENAME in session state
             st.session_state['results'] = {
                 'class': "Parasitized" if pred.item() == 0 else "Uninfected",
                 'conf': confidence.item() * 100,
-                'timestamp': datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                'timestamp': datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                'filename': uploaded_file.name  # <--- FIX: Save the name here
             }
 
 with col_output:
@@ -172,8 +168,7 @@ with col_output:
         st.markdown(f"""
             <div class="report-container">
                 <div class="section-header">CLINICAL TRIAGE SUMMARY</div>
-                <p><b>Sample ID:</b> {uploaded_file.name}</p>
-                <p><b>Scan Timestamp:</b> {res['timestamp']}</p>
+                <p><b>Sample ID:</b> {res['filename']}</p> <p><b>Scan Timestamp:</b> {res['timestamp']}</p>
                 <hr style="border: 0.5px solid #E2E8F0;">
                 <h2 style="color: {'#E11D48' if res['class'] == 'Parasitized' else '#10B981'};">
                     {res['class'].upper()}
