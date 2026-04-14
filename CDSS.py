@@ -63,16 +63,17 @@ st.markdown(
 # --- 2. ASSET LOADING & MODEL INITIALIZATION ---
 @st.cache_resource
 def load_clinical_model():
-    # Reconstruct ResNet-50 Architecture
-    model = models.resnet50(weights=None)
-    num_ftrs = model.fc.in_features
-    model.fc = nn.Linear(num_ftrs, 2)
+    # 1. Initialize the base model
+    model = models.resnet50(weights=None) 
     
-    # Load Weights (Ensure best_malaria_resnet.pth is in the root directory)
+    # 2. Modify the final layer to output 2 classes (MATCHING YOUR TRAINING)
+    num_ftrs = model.fc.in_features
+    model.fc = nn.Linear(num_ftrs, 2) 
+    
+    # 3. NOW load the weights
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    if os.path.exists("best_malaria_resnet.pth"):
-        model.load_state_dict(torch.load("best_malaria_resnet.pth", map_location=device))
-    model.to(device)
+    model.load_state_dict(torch.load("best_malaria_resnet.pth", map_location=device))
+    
     model.eval()
     return model, device
 
