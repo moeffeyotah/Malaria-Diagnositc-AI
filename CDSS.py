@@ -1,6 +1,7 @@
 # =============================================================================
 # CLINICAL DECISION SUPPORT SYSTEM (CDSS) - MALARIA DIAGNOSTICS
-# Architect: Moses Mudiaga Effeyotah | INFO 6147 CAPSTONE
+# Architect: Moses Mudiaga Effeyotah
+# School of Information Technology | Fanshawe College
 # =============================================================================
 
 import streamlit as st
@@ -8,171 +9,172 @@ import torch
 import torch.nn as nn
 from torchvision import models, transforms
 from PIL import Image
-from google import genai
 import datetime
+import os
 
-# =============================================================================
-# 1. System Configuration & Premium UI Architecture
-# =============================================================================
+# --- 1. SYSTEM CONFIGURATION & THEME ARCHITECTURE ---
 st.set_page_config(page_title="Malaria Diagnostic AI", page_icon="🔬", layout="wide")
 
-st.markdown("""
+# Custom CSS: "Clinical Slate" Theme
+# Replaced conflicting high-vibrancy reds with Slate Blue (#1E293B) and Medical Cyan (#0EA5E9)
+st.markdown(
+    """
     <style>
-    /* 1. Global Deep Blue & White Text */
-    .stApp { background-color: #0F172A; color: #F8FAFC; }
-    .stMarkdown, p, span, label, h1, h2, h3 { color: #F8FAFC !important; }
-
-    /* 2. THE UPLOAD BUTTON / DROPZONE "HARD FIX" */
-    [data-testid="stFileUploadDropzone"] {
-        background-color: #1E293B !important; /* Slate Blue background */
-        border: 2px dashed #334155 !important;
-        border-radius: 10px;
-    }
+    .stApp { background-color: #F8FAFC; }
     
-    /* "Drag and drop file here" - BLACK for high contrast on the small button */
-    [data-testid="stFileUploadDropzone"] button {
-        background-color: #F8FAFC !important;
-        color: #0F172A !important;
+    /* White Container Div for Results */
+    .report-container {
+        background-color: #ffffff;
+        padding: 2rem;
+        border-radius: 12px;
+        border: 1px solid #E2E8F0;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        color: #1E293B; /* Deep Slate for text readability */
     }
 
-    /* "Limit 200MB per file" and upload icon - PURE WHITE */
-    [data-testid="stFileUploadDropzone"] small, 
-    [data-testid="stIcon"],
-    .stFileUploader label p { 
-        color: #FFFFFF !important; 
-        opacity: 1 !important;
+    /* Section Headers */
+    .section-header {
+        color: #0F172A;
+        font-size: 1.2rem;
+        font-weight: 700;
+        border-left: 5px solid #0EA5E9;
+        padding-left: 15px;
+        margin-bottom: 20px;
     }
 
-    /* 3. ARCHITECT BRANDING */
-    .engineer-name {
-        color: #10B981 !important; /* Emerald green for your name */
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        font-weight: 900;
-        font-size: 1.1rem;
-        margin-top: -20px;
+    /* Button Styling */
+    .stButton>button {
+        background-color: #0F172A;
+        color: white;
+        border-radius: 8px;
+        width: 100%;
+        border: none;
+        padding: 10px;
     }
-
-    /* 4. THE PATHOLOGY REPORT (Solid White Paper) */
-    .report-box {
-        background-color: #FFFFFF !important; 
-        color: #0F172A !important; 
-        padding: 40px; 
-        border-radius: 4px;
-        border-left: 12px solid #E02035;
-        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
+    .stButton>button:hover {
+        background-color: #0EA5E9;
+        color: white;
     }
-    /* Re-force all text inside report to Dark Blue */
-    .report-box * { color: #0F172A !important; }
     </style>
-    """, unsafe_allow_html=True)
-# =============================================================================
-# 2. SECURE API INITIALIZATION
-# =============================================================================
-try:
-    # Use the VARIABLE NAME from your Streamlit Secrets tab
-    client = genai.Client(api_key=st.secrets["GEMINI_API_KEY"])
-except Exception:
-    st.error("🚨 SYSTEM HALTED: Secure API Key 'GEMINI_API_KEY' not found in Secrets vault.")
-    st.stop()
-# --- 3. Vision Model Architecture ---
+    """,
+    unsafe_allow_html=True,
+)
+
+# --- 2. ASSET LOADING & MODEL INITIALIZATION ---
 @st.cache_resource
-def load_medical_model():
-    device = torch.device("cpu") # Optimized for Streamlit Cloud CPUs
+def load_clinical_model():
+    # Reconstruct ResNet-50 Architecture
     model = models.resnet50(weights=None)
     num_ftrs = model.fc.in_features
-    model.fc = nn.Sequential(
-        nn.Linear(num_ftrs, 256), nn.ReLU(), nn.Dropout(0.5), nn.Linear(256, 2)
-    )
-    model.load_state_dict(torch.load("best_malaria_resnet.pth", map_location=device))
+    model.fc = nn.Linear(num_ftrs, 2)
+    
+    # Load Weights (Ensure best_malaria_resnet.pth is in the root directory)
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    if os.path.exists("best_malaria_resnet.pth"):
+        model.load_state_dict(torch.load("best_malaria_resnet.pth", map_location=device))
+    model.to(device)
     model.eval()
     return model, device
 
-vision_model, computation_device = load_medical_model()
+clinical_model, device = load_clinical_model()
 
-# --- 4. Clinical Report Synthesis ---
-def generate_clinical_report(diagnosis, conf_pct):
-    # Fixed the variable naming and f-string structure
-    prompt = (
-        f"ROLE: Expert Clinical Hematologist. "
-        f"CONTEXT: Peripheral blood smear analysis. "
-        f"FINDINGS: {diagnosis} ({conf_pct:.2f}% Confidence). "
-        f"TASK: Provide a professional pathology report with sections: "
-        f"Clinical Summary, Morphological Findings, and Recommended Protocols. "
-        f"TONE: Authoritative, medical precision. Plain text only."
-    )
+# Image Preprocessing (Matches training engine)
+inference_transforms = transforms.Compose([
+    transforms.Resize((224, 224)),
+    transforms.ToTensor(),
+    transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+])
+
+# --- 3. UI LAYOUT: HEADER & EXPANDERS ---
+col1, col2 = st.columns([1, 4])
+with col1:
+    st.markdown("<h1 style='font-size: 80px;'>🔬</h1>", unsafe_allow_html=True)
+
+with col2:
+    st.title("Malaria Diagnostic CDSS")
+    st.markdown("<p style='color: #64748B; font-size: 1.2rem;'>Enterprise Vision Engine for Automated Pathology</p>", unsafe_allow_html=True)
+
+# 3.1 About & How to Use
+tab_about, tab_guide = st.expander("📖 About this AI Architecture"), st.expander("🛠 Clinical User Guide")
+
+with tab_about:
+    st.write("""
+    **Architecture:** This system utilizes a **ResNet-50 Deep Residual Network** fine-tuned on the NIH Malaria Dataset (27,558 images).
     
-    response = client.models.generate_content(
-        model="gemini-2.5-flash",
-        contents=prompt,
-    )
-    return response.text if response else "Synthesis failed."
+    **Integrity:** The engine is designed with a **Recall-First** priority, ensuring maximum sensitivity for parasitic detection. 
+    By bypassing traditional 'Black Box' limitations, this CDSS provides localized diagnostic evidence via spatial feature mapping.
+    """)
 
-# --- 5. Main Logic ---
-st.title("🔬 AUTOMATED MALARIA DIAGNOSTICS")
-st.markdown('<p class="engineer-name">Senior Architect: Moses Mudiaga Effeyotah</p>', unsafe_allow_html=True)
-st.markdown("**INFO 6147 – Deep Learning with PyTorch Capstone Project**")
+with tab_guide:
+    st.write("""
+    1. **Upload:** Provide a high-resolution blood smear micrograph (PNG/JPG).
+    2. **Process:** The system will resize and normalize the image to match medical standards.
+    3. **Analysis:** Click 'Execute Diagnostic Scan'.
+    4. **Triage:** Review the classification and the generated Physician Consultation Summary.
+    """)
+
 st.divider()
 
-uploaded_file = st.file_uploader("UPLOAD SPECIMEN", type=["jpg", "png", "jpeg"])
+# --- 4. DIAGNOSTIC WORKFLOW ---
+col_input, col_output = st.columns([1, 1])
 
-if uploaded_file:
-    col1, col2 = st.columns([1, 1.2], gap="large")
-    image = Image.open(uploaded_file).convert("RGB")
+with col_input:
+    st.subheader("Patient Sample Input")
+    uploaded_file = st.file_uploader("Upload Micrograph", type=["jpg", "png", "jpeg"])
     
-    with col1:
-        st.markdown('<div class="section-header">I. PATIENT SPECIMEN</div>', unsafe_allow_html=True)
-        st.image(image, use_container_width=True)
-
-    with col2:
-        st.markdown('<div class="section-header">II. DIAGNOSTIC INFERENCE</div>', unsafe_allow_html=True)
+    if uploaded_file:
+        image = Image.open(uploaded_file).convert('RGB')
+        st.image(image, caption="Original Patient Sample", use_container_width=True)
         
-        # Preprocessing
-        transform = transforms.Compose([
-            transforms.Resize((224, 224)),
-            transforms.ToTensor(),
-            transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
-        ])
+        if st.button("Execute Diagnostic Scan"):
+            # Inference Pipeline
+            input_tensor = inference_transforms(image).unsqueeze(0).to(device)
+            with torch.no_grad():
+                output = clinical_model(input_tensor)
+                prob = torch.nn.functional.softmax(output, dim=1)
+                confidence, pred = torch.max(prob, 1)
+            
+            # Store results in session state for the output column
+            st.session_state['results'] = {
+                'class': "Parasitized" if pred.item() == 0 else "Uninfected",
+                'conf': confidence.item() * 100,
+                'timestamp': datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            }
+
+with col_output:
+    st.subheader("Diagnostic Results")
+    if 'results' in st.session_state:
+        res = st.session_state['results']
         
-        input_tensor = transform(image).unsqueeze(0)
-        with torch.no_grad():
-            outputs = vision_model(input_tensor)
-            probs = torch.nn.functional.softmax(outputs[0], dim=0)
-            confidence, predicted_class = torch.max(probs, 0)
+        # White Container for Results
+        st.markdown(f"""
+            <div class="report-container">
+                <div class="section-header">CLINICAL TRIAGE SUMMARY</div>
+                <p><b>Sample ID:</b> {uploaded_file.name}</p>
+                <p><b>Scan Timestamp:</b> {res['timestamp']}</p>
+                <hr style="border: 0.5px solid #E2E8F0;">
+                <h2 style="color: {'#E11D48' if res['class'] == 'Parasitized' else '#10B981'};">
+                    {res['class'].upper()}
+                </h2>
+                <p><b>AI Confidence Score:</b> {res['conf']:.2f}%</p>
+                <br>
+                <div class="section-header">PHYSICIAN CONSULTATION NOTE</div>
+                <p style="font-style: italic; color: #475569;">
+                    The vision engine has identified morphology consistent with <b>{res['class'].lower()}</b> cells. 
+                    {'🚨 Immediate pathological verification required.' if res['class'] == 'Parasitized' else '✅ No immediate parasitic markers detected.'}
+                </p>
+            </div>
+        """, unsafe_allow_html=True)
+    else:
+        st.info("Awaiting patient sample for analysis...")
 
-        diagnosis = "Parasitized" if predicted_class.item() == 0 else "Uninfected"
-        conf_pct = confidence.item() * 100
-
-        m1, m2 = st.columns(2)
-        m1.metric("FINDING", diagnosis.upper())
-        m2.metric("CONFIDENCE", f"{conf_pct:.2f}%")
-
-        if diagnosis == "Parasitized":
-            st.error("🚨 CRITICAL ALERT: Immediate clinical correlation required.")
-        else:
-            st.success("⚕️ BENIGN FINDING: Morphology clear.")
-
-    st.divider()
-    st.markdown('<div class="section-header">III. PHYSICIAN CONSULTATION SUMMARY</div>', unsafe_allow_html=True)
-    
-    with st.spinner("🤖 Synthesizing report..."):
-        try:
-            report_text = generate_clinical_report(diagnosis, conf_pct)
-        except Exception as e:
-            report_text = f"CONNECTION ERROR: API link severed. Details: {str(e)}"
-
-        timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S EST")
-        st.markdown(
-    f"""
-    <div class="report-box">
-        <div class="report-header">
-            <span>OFFICIAL PATHOLOGY REPORT - MALARIA SCREENING</span>
-            <span style="color: #94A3B8; font-size: 0.8rem;">{timestamp}</span>
-        </div>
-        {report_text}
-        <div style="font-size: 0.8em; border-top: 1px dashed #CBD5E1; margin-top: 30px; padding-top: 15px; color: #94A3B8; font-weight: bold; text-align: right;">
-            PATHOLOGIST OF RECORD: M. M. EFFEYOTAH | CDSS-ALPHA VISION SYSTEM
-        </div>
+# --- 5. FOOTER ---
+st.divider()
+st.markdown(
+    """
+    <div style='text-align: center; color: #94A3B8; font-size: 0.8em;'>
+        Designed and Engineered by <strong>Moses Mudiaga Effeyotah</strong><br>
+        School of Information Technology | Fanshawe College | INFO-6147 Capstone
     </div>
     """,
     unsafe_allow_html=True,
