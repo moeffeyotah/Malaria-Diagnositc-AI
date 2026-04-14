@@ -16,7 +16,6 @@ import os
 st.set_page_config(page_title="Malaria Diagnostic AI", page_icon="🔬", layout="wide")
 
 # Custom CSS: "Clinical Slate" Theme
-# Replaced conflicting high-vibrancy reds with Slate Blue (#1E293B) and Medical Cyan (#0EA5E9)
 st.markdown(
     """
     <style>
@@ -63,18 +62,40 @@ st.markdown(
 # --- 2. ASSET LOADING & MODEL INITIALIZATION ---
 @st.cache_resource
 def load_clinical_model():
-    # 1. Initialize the base model
-    model = models.resnet50(weights=None) 
-    
-    # 2. Modify the final layer to output 2 classes (MATCHING YOUR TRAINING)
-    num_ftrs = model.fc.in_features
-    model.fc = nn.Linear(num_ftrs, 2) 
-    
-    # 3. NOW load the weights
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    model.load_state_dict(torch.load("best_malaria_resnet.pth", map_location=device))
     
+    # 1. Initialize the base ResNet50 model
+    model = models.resnet50(weights=None)
+    
+    # 2. Load the state dictionary from the file securely
+    # Added weights_only=True for modern PyTorch security standards
+    state_dict = torch.load("best_malaria_resnet.pth", map_location=device, weights_only=True)
+    
+    # 3. DYNAMIC ARCHITECTURE RECONSTRUCTION
+    # Check if the saved model used a Sequential block (fc.0 and fc.3)
+    if 'fc.0.weight' in state_dict:
+        # Extract the exact node counts from the saved weights
+        in_ftrs = state_dict['fc.0.weight'].shape[1]
+        hidden_ftrs = state_dict['fc.0.weight'].shape[0]
+        out_ftrs = state_dict['fc.3.weight'].shape[0]
+        
+        # Rebuild the exact sequence used during training
+        model.fc = nn.Sequential(
+            nn.Linear(in_ftrs, hidden_ftrs),
+            nn.ReLU(),
+            nn.Dropout(0.5), # Exact % doesn't matter since model.eval() turns dropout off
+            nn.Linear(hidden_ftrs, out_ftrs)
+        )
+    else:
+        # Fallback to standard single-layer replacement just in case
+        num_ftrs = model.fc.in_features
+        model.fc = nn.Linear(num_ftrs, 2)
+        
+    # 4. Now inject the weights into our perfectly matched architecture
+    model.load_state_dict(state_dict)
+    model.to(device)
     model.eval()
+    
     return model, device
 
 clinical_model, device = load_clinical_model()
