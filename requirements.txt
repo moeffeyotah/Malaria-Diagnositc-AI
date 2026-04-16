@@ -1,5 +1,5 @@
 torch
 torchvision
 pillow
-google-genai
+groq
 streamlit
