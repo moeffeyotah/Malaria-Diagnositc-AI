@@ -11,28 +11,25 @@ from torchvision import models, transforms
 from PIL import Image
 import datetime
 import os
-from groq import Groq # Swapped from Google Gemini to Groq LPU
+from groq import Groq
 
 # --- 1. SYSTEM CONFIGURATION & THEME ARCHITECTURE ---
 st.set_page_config(page_title="Malaria Diagnostic AI", page_icon="🔬", layout="wide")
 
-# Custom CSS: "Clinical Slate" Theme
 st.markdown(
     """
     <style>
     .stApp { background-color: #F8FAFC; }
     
-    /* White Container Div for Results */
     .report-container {
         background-color: #ffffff;
         padding: 2rem;
         border-radius: 12px;
         border: 1px solid #E2E8F0;
         box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        color: #1E293B; /* Deep Slate for text readability */
+        color: #1E293B; 
     }
 
-    /* Section Headers */
     .section-header {
         color: #0F172A;
         font-size: 1.2rem;
@@ -42,7 +39,6 @@ st.markdown(
         margin-bottom: 20px;
     }
 
-    /* Button Styling */
     .stButton>button {
         background-color: #0F172A;
         color: white;
@@ -60,8 +56,7 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-# --- 2. SECURE LLM SETUP (GROQ LPU ENGINE) ---
-# Hardcoded as a fallback, but try to use st.secrets long-term!
+# --- 2. SECURE LLM SETUP ---
 groq_key = st.secrets.get(
     "GROQ_API_KEY", 
     os.getenv("GROQ_API_KEY", "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")
@@ -79,11 +74,10 @@ def generate_clinical_report(diagnosis, conf_pct):
     If 'Uninfected', state that no parasitic markers were detected but advise monitoring if symptoms persist.
     """
     try:
-        # Utilizing Groq's high-speed Llama 3.3 70B engine
         chat_completion = groq_client.chat.completions.create(
             messages=[{"role": "user", "content": prompt}],
             model="llama-3.3-70b-versatile",
-            temperature=0.2, # Lower temperature for clinical, factual tone
+            temperature=0.2, 
             max_tokens=150,  
         )
         return chat_completion.choices[0].message.content
@@ -95,13 +89,9 @@ def generate_clinical_report(diagnosis, conf_pct):
 def load_clinical_model():
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     
-    # 1. Initialize the base ResNet50 model
     model = models.resnet50(weights=None)
-    
-    # 2. Load the state dictionary from the file securely
     state_dict = torch.load("best_malaria_resnet.pth", map_location=device, weights_only=True)
     
-    # 3. DYNAMIC ARCHITECTURE RECONSTRUCTION
     if 'fc.0.weight' in state_dict:
         in_ftrs = state_dict['fc.0.weight'].shape[1]
         hidden_ftrs = state_dict['fc.0.weight'].shape[0]
@@ -117,7 +107,6 @@ def load_clinical_model():
         num_ftrs = model.fc.in_features
         model.fc = nn.Linear(num_ftrs, 2)
         
-    # 4. Inject weights
     model.load_state_dict(state_dict)
     model.to(device)
     model.eval()
@@ -126,7 +115,6 @@ def load_clinical_model():
 
 clinical_model, device = load_clinical_model()
 
-# Image Preprocessing (Matches training engine)
 inference_transforms = transforms.Compose([
     transforms.Resize((224, 224)),
     transforms.ToTensor(),
@@ -154,7 +142,7 @@ with tab_about:
 
 with tab_guide:
     st.write("""
-    1. **Upload:** Provide a high-resolution blood smear micrograph (PNG/JPG).
+    1. **Source:** Choose to either upload your own Micrograph or select from our pre-loaded clinical database.
     2. **Process:** The system will resize and normalize the image to match medical standards.
     3. **Analysis:** Click 'Execute Diagnostic Scan'.
     4. **Triage:** Review the classification and the generated Physician Consultation Summary.
@@ -167,41 +155,65 @@ col_input, col_output = st.columns([1, 1])
 
 with col_input:
     st.subheader("Patient Sample Input")
-    uploaded_file = st.file_uploader("Upload Micrograph", type=["jpg", "png", "jpeg"])
     
-    if uploaded_file:
-        # Load the original image for the PyTorch Model
-        original_image = Image.open(uploaded_file).convert('RGB')
+    source_option = st.radio("Choose Input Method:", ["Upload Micrograph", "Use Clinical Database"], horizontal=True)
+    
+    image = None
+    file_id = ""
+    
+    if source_option == "Upload Micrograph":
+        uploaded_file = st.file_uploader("Drop PNG/JPG here", type=["jpg", "png", "jpeg"], label_visibility="collapsed")
+        if uploaded_file:
+            image = Image.open(uploaded_file).convert('RGB')
+            file_id = uploaded_file.name
+            
+    else:
+        sample_dir = "clean_cell_images" 
+        if os.path.exists(sample_dir):
+            sample_files = []
+            # Walk through subdirectories (Parasitized and Uninfected)
+            for root, dirs, files in os.walk(sample_dir):
+                for f in files:
+                    if f.lower().endswith(('.png', '.jpg', '.jpeg')):
+                        rel_path = os.path.relpath(os.path.join(root, f), sample_dir)
+                        sample_files.append(rel_path)
+            
+            if sample_files:
+                selected_sample = st.selectbox("Select a sample from the database:", sorted(sample_files))
+                image_path = os.path.join(sample_dir, selected_sample)
+                image = Image.open(image_path).convert('RGB')
+                file_id = selected_sample
+            else:
+                st.warning("⚠️ No valid images found inside the database folders.")
+        else:
+            st.warning("⚠️ The clinical database folder was not found in the repository.")
+
+    if image:
+        st.markdown("<br>", unsafe_allow_html=True) 
         
-        # UI LAYOUT: Create a display thumbnail so it doesn't stretch the screen
-        display_image = original_image.copy()
-        display_image.thumbnail((400, 400)) # Locks the visual size without distorting
+        # Display thumbnail for layout stability
+        display_image = image.copy()
+        display_image.thumbnail((400, 400)) 
+        st.image(display_image, caption=f"Sample ID: {file_id}", width="stretch")
         
-        # Updated deprecated use_column_width to width="stretch" per Streamlit logs
-        st.image(display_image, caption="Original Patient Sample", width="stretch")
-        
-        if st.button("Execute Diagnostic Scan"):
-            # Inference Pipeline (Using the original high-res image)
-            input_tensor = inference_transforms(original_image).unsqueeze(0).to(device)
+        if st.button("Execute Diagnostic Scan", type="primary"):
+            input_tensor = inference_transforms(image).unsqueeze(0).to(device)
             with torch.no_grad():
                 output = clinical_model(input_tensor)
                 prob = torch.nn.functional.softmax(output, dim=1)
                 confidence, pred = torch.max(prob, 1)
             
-            # Setup Variables
             diagnosis = "Parasitized" if pred.item() == 0 else "Uninfected"
             conf_pct = confidence.item() * 100
             
-            # Trigger LLM Synthesis Before Saving to Session State
             with st.spinner("🤖 Synthesizing clinical data via Llama 3..."):
                 llm_summary = generate_clinical_report(diagnosis, conf_pct)
             
-            # Store everything securely in session state
             st.session_state['results'] = {
                 'class': diagnosis,
                 'conf': conf_pct,
                 'timestamp': datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-                'filename': uploaded_file.name,
+                'filename': file_id,
                 'summary': llm_summary
             }
 
@@ -210,8 +222,6 @@ with col_output:
     if 'results' in st.session_state:
         res = st.session_state['results']
         
-        # White Container for Results with injected LLM Summary
-        # Safely retrieve the summary using .get() to prevent KeyErrors on old sessions
         report_summary = res.get('summary', 'Summary not available. Please click "Execute Diagnostic Scan" to generate.')
         
         st.markdown(f"""
