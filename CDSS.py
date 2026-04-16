@@ -62,7 +62,7 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-# --- 2. SECURE LLM SETUP (Groq LPU) ---
+# --- 2. SECURE LLM SETUP ---
 groq_key = st.secrets.get("GROQ_API_KEY", os.getenv("GROQ_API_KEY", "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"))
 groq_client = Groq(api_key=groq_key)
 
@@ -89,6 +89,7 @@ def generate_clinical_report(diagnosis, conf_pct, age, travel, symptoms, triage_
         return chat_completion.choices[0].message.content
     except Exception as e:
         return f"CONNECTION ERROR: LLM Synthesis failed. Details: {str(e)}"
+
 # --- 3. ASSET LOADING & MODEL INITIALIZATION ---
 @st.cache_resource
 def load_clinical_model():
@@ -114,7 +115,7 @@ def load_clinical_model():
     model.to(device)
     model.eval()
     
-    # FAttach the activation dictionary directly to the cached model object
+    # Store activations within the cached model
     model.activations = {}
     def get_activation(name):
         def hook(module, input, output):
@@ -170,17 +171,37 @@ def create_pdf(res):
     
     return pdf.output(dest='S').encode('latin1')
 
-# --- 4. UI LAYOUT ---
+# --- 4. UI LAYOUT & SIDEBAR ---
 st.sidebar.markdown("### 📋 Patient Context (RAG)")
 patient_age = st.sidebar.number_input("Patient Age", min_value=1, max_value=120, value=35)
 patient_travel = st.sidebar.text_input("Recent Travel History", "e.g., Sub-Saharan Africa")
 patient_symptoms = st.sidebar.text_area("Reported Symptoms", "e.g., Intermittent fever, chills")
 
 st.markdown("<h1 style='text-align: center;'>🔬 Malaria Diagnostic CDSS</h1>", unsafe_allow_html=True)
-st.markdown("<p style='text-align: center; color: #64748B;'>Enterprise Vision Engine featuring Explainable AI & Batch Processing</p>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center; color: #64748B; margin-bottom: 30px;'>Enterprise Vision Engine featuring Explainable AI & Batch Processing</p>", unsafe_allow_html=True)
+
+# Documentation Expanders
+doc_col1, doc_col2 = st.columns(2)
+with doc_col1:
+    with st.expander("📖 About this AI Architecture"):
+        st.write("""
+        **Architecture:** This system utilizes a **ResNet-50 Deep Residual Network** fine-tuned on the NIH Malaria Dataset.
+        
+        **Explainable AI (XAI):** Utilizing Gradient-weighted Class Activation Mapping (Grad-CAM), the engine overlays a spatial heatmap to prove exactly which parasitic features influenced the diagnosis.
+        
+        **LLM Integration:** Powered by the **Groq LPU (Llama 3.3 70B)**, the app acts as a RAG-lite engine, injecting the patient's sidebar context and visual AI scores to synthesize real-time clinical consultation notes.
+        """)
+with doc_col2:
+    with st.expander("🛠️ Clinical User Guide"):
+        st.write("""
+        1. **Patient Context:** (Optional) Fill out the left sidebar with patient history to personalize the LLM report.
+        2. **Single Triage Mode:** Select an image from the clinical database or upload your own, then run the scan to generate visual heatmaps and a downloadable PDF dossier.
+        3. **Batch Mode:** Switch to the High-Throughput tab to upload a massive batch of `.png/.jpg` files and generate an instant CSV clinical summary.
+        """)
+
 st.divider()
 
-# --- FEATURE 5: TABS FOR SINGLE VS BATCH PROCESSING ---
+# --- 5. DIAGNOSTIC WORKFLOW TABS ---
 tab_single, tab_batch = st.tabs(["🩺 Single Patient Triage", "📂 High-Throughput Batch Processing"])
 
 with tab_single:
@@ -233,11 +254,10 @@ with tab_single:
                 diagnosis = "Parasitized" if pred.item() == 0 else "Uninfected"
                 conf_pct = confidence.item() * 100
                 
-                # FEATURE 2: HUMAN-IN-THE-LOOP TRIAGE
                 triage_status = "CLEAR" if conf_pct >= 85 else "INDETERMINATE - HUMAN REVIEW REQUIRED"
                 
-                # FEATURE 1: GENERATE XAI HEATMAP
-                heatmap_img = generate_heatmap(image, activation['layer4'])
+                # Fetch heatmap using the safe cached variable
+                heatmap_img = generate_heatmap(image, clinical_model.activations['layer4'])
                 
                 with st.spinner("🤖 Synthesizing clinical data via Groq LPU..."):
                     llm_summary = generate_clinical_report(diagnosis, conf_pct, patient_age, patient_travel, patient_symptoms, triage_status)
@@ -259,7 +279,7 @@ with tab_single:
         if 'results' in st.session_state:
             res = st.session_state['results']
             status_color = "#E11D48" if res['class'] == 'Parasitized' else "#10B981"
-            if "INDETERMINATE" in res['triage']: status_color = "#F59E0B" # Amber warning
+            if "INDETERMINATE" in res['triage']: status_color = "#F59E0B" 
             
             st.markdown(f"""
                 <div class="report-container">
@@ -278,7 +298,6 @@ with tab_single:
             st.markdown("<br><b>Explainable AI (XAI) Activation Map:</b>", unsafe_allow_html=True)
             st.image(res['heatmap'], caption="Regions of highest pathological significance", width=350)
             
-            # FEATURE 3: PDF EXPORT
             pdf_bytes = create_pdf(res)
             st.download_button(
                 label="📄 Download Official PDF Dossier",
