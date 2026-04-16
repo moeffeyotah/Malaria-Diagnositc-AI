@@ -11,7 +11,7 @@ from torchvision import models, transforms
 from PIL import Image
 import datetime
 import os
-from groq import Groq 
+from groq import Groq # Swapped from Google Gemini to Groq LPU
 
 # --- 1. SYSTEM CONFIGURATION & THEME ARCHITECTURE ---
 st.set_page_config(page_title="Malaria Diagnostic AI", page_icon="🔬", layout="wide")
@@ -60,7 +60,7 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-# --- 2. SECURE LLM SETUP  ---
+# --- 2. SECURE LLM SETUP (GROQ LPU ENGINE) ---
 # Hardcoded as a fallback, but try to use st.secrets long-term!
 groq_key = st.secrets.get(
     "GROQ_API_KEY", 
@@ -177,8 +177,8 @@ with col_input:
         display_image = original_image.copy()
         display_image.thumbnail((400, 400)) # Locks the visual size without distorting
         
-        # Display the locked thumbnail
-        st.image(display_image, caption="Original Patient Sample")
+        # Updated deprecated use_column_width to width="stretch" per Streamlit logs
+        st.image(display_image, caption="Original Patient Sample", width="stretch")
         
         if st.button("Execute Diagnostic Scan"):
             # Inference Pipeline (Using the original high-res image)
@@ -211,20 +211,23 @@ with col_output:
         res = st.session_state['results']
         
         # White Container for Results with injected LLM Summary
+        # Safely retrieve the summary using .get() to prevent KeyErrors on old sessions
+        report_summary = res.get('summary', 'Summary not available. Please click "Execute Diagnostic Scan" to generate.')
+        
         st.markdown(f"""
             <div class="report-container">
                 <div class="section-header">CLINICAL TRIAGE SUMMARY</div>
-                <p><b>Sample ID:</b> {res['filename']}</p>
-                <p><b>Scan Timestamp:</b> {res['timestamp']}</p>
+                <p><b>Sample ID:</b> {res.get('filename', 'Unknown')}</p>
+                <p><b>Scan Timestamp:</b> {res.get('timestamp', 'Unknown')}</p>
                 <hr style="border: 0.5px solid #E2E8F0;">
-                <h2 style="color: {'#E11D48' if res['class'] == 'Parasitized' else '#10B981'};">
-                    {res['class'].upper()}
+                <h2 style="color: {'#E11D48' if res.get('class') == 'Parasitized' else '#10B981'};">
+                    {str(res.get('class', 'Unknown')).upper()}
                 </h2>
-                <p><b>AI Confidence Score:</b> {res['conf']:.2f}%</p>
+                <p><b>AI Confidence Score:</b> {res.get('conf', 0):.2f}%</p>
                 <br>
                 <div class="section-header">PHYSICIAN CONSULTATION NOTE</div>
                 <p style="font-style: italic; color: #475569; line-height: 1.6;">
-                    {res['summary']}
+                    {report_summary}
                 </p>
             </div>
         """, unsafe_allow_html=True)
