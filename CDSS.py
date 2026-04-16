@@ -11,6 +11,7 @@ from torchvision import models, transforms
 from PIL import Image
 import datetime
 import os
+from groq import Groq 
 
 # --- 1. SYSTEM CONFIGURATION & THEME ARCHITECTURE ---
 st.set_page_config(page_title="Malaria Diagnostic AI", page_icon="🔬", layout="wide")
@@ -59,7 +60,37 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-# --- 2. ASSET LOADING & MODEL INITIALIZATION ---
+# --- 2. SECURE LLM SETUP  ---
+# Hardcoded as a fallback, but try to use st.secrets long-term!
+groq_key = st.secrets.get(
+    "GROQ_API_KEY", 
+    os.getenv("GROQ_API_KEY", "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")
+)
+groq_client = Groq(api_key=groq_key)
+
+def generate_clinical_report(diagnosis, conf_pct):
+    prompt = f"""
+    Act as a Lead Clinical Pathologist. 
+    Write a brief, highly professional 3-sentence consultation summary for a malaria thin blood smear scan. 
+    Diagnosis: {diagnosis}
+    AI Confidence: {conf_pct:.2f}%
+    
+    If the diagnosis is 'Parasitized', advise immediate clinical correlation and pathology review.
+    If 'Uninfected', state that no parasitic markers were detected but advise monitoring if symptoms persist.
+    """
+    try:
+        # Utilizing Groq's high-speed Llama 3.3 70B engine
+        chat_completion = groq_client.chat.completions.create(
+            messages=[{"role": "user", "content": prompt}],
+            model="llama-3.3-70b-versatile",
+            temperature=0.2, # Lower temperature for clinical, factual tone
+            max_tokens=150,  
+        )
+        return chat_completion.choices[0].message.content
+    except Exception as e:
+        return f"CONNECTION ERROR: LLM Synthesis failed. Details: {str(e)}"
+
+# --- 3. ASSET LOADING & MODEL INITIALIZATION ---
 @st.cache_resource
 def load_clinical_model():
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -102,7 +133,7 @@ inference_transforms = transforms.Compose([
     transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
 ])
 
-# --- 3. UI LAYOUT: HEADER & EXPANDERS ---
+# --- 4. UI LAYOUT: HEADER & EXPANDERS ---
 col1, col2 = st.columns([1, 4])
 with col1:
     st.markdown("<h1 style='font-size: 80px;'>🔬</h1>", unsafe_allow_html=True)
@@ -131,7 +162,7 @@ with tab_guide:
 
 st.divider()
 
-# --- 4. DIAGNOSTIC WORKFLOW ---
+# --- 5. DIAGNOSTIC WORKFLOW ---
 col_input, col_output = st.columns([1, 1])
 
 with col_input:
@@ -139,24 +170,39 @@ with col_input:
     uploaded_file = st.file_uploader("Upload Micrograph", type=["jpg", "png", "jpeg"])
     
     if uploaded_file:
-        image = Image.open(uploaded_file).convert('RGB')
-        # Replaced deprecated use_container_width with use_column_width
-        st.image(image, caption="Original Patient Sample", use_column_width=True)
+        # Load the original image for the PyTorch Model
+        original_image = Image.open(uploaded_file).convert('RGB')
+        
+        # UI LAYOUT: Create a display thumbnail so it doesn't stretch the screen
+        display_image = original_image.copy()
+        display_image.thumbnail((400, 400)) # Locks the visual size without distorting
+        
+        # Display the locked thumbnail
+        st.image(display_image, caption="Original Patient Sample")
         
         if st.button("Execute Diagnostic Scan"):
-            # Inference Pipeline
-            input_tensor = inference_transforms(image).unsqueeze(0).to(device)
+            # Inference Pipeline (Using the original high-res image)
+            input_tensor = inference_transforms(original_image).unsqueeze(0).to(device)
             with torch.no_grad():
                 output = clinical_model(input_tensor)
                 prob = torch.nn.functional.softmax(output, dim=1)
                 confidence, pred = torch.max(prob, 1)
             
-            # Store results AND THE FILENAME in session state
+            # Setup Variables
+            diagnosis = "Parasitized" if pred.item() == 0 else "Uninfected"
+            conf_pct = confidence.item() * 100
+            
+            # Trigger LLM Synthesis Before Saving to Session State
+            with st.spinner("🤖 Synthesizing clinical data via Llama 3..."):
+                llm_summary = generate_clinical_report(diagnosis, conf_pct)
+            
+            # Store everything securely in session state
             st.session_state['results'] = {
-                'class': "Parasitized" if pred.item() == 0 else "Uninfected",
-                'conf': confidence.item() * 100,
+                'class': diagnosis,
+                'conf': conf_pct,
                 'timestamp': datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-                'filename': uploaded_file.name  # <--- FIX: Save the name here
+                'filename': uploaded_file.name,
+                'summary': llm_summary
             }
 
 with col_output:
@@ -164,11 +210,12 @@ with col_output:
     if 'results' in st.session_state:
         res = st.session_state['results']
         
-        # White Container for Results
+        # White Container for Results with injected LLM Summary
         st.markdown(f"""
             <div class="report-container">
                 <div class="section-header">CLINICAL TRIAGE SUMMARY</div>
-                <p><b>Sample ID:</b> {res['filename']}</p> <p><b>Scan Timestamp:</b> {res['timestamp']}</p>
+                <p><b>Sample ID:</b> {res['filename']}</p>
+                <p><b>Scan Timestamp:</b> {res['timestamp']}</p>
                 <hr style="border: 0.5px solid #E2E8F0;">
                 <h2 style="color: {'#E11D48' if res['class'] == 'Parasitized' else '#10B981'};">
                     {res['class'].upper()}
@@ -176,16 +223,15 @@ with col_output:
                 <p><b>AI Confidence Score:</b> {res['conf']:.2f}%</p>
                 <br>
                 <div class="section-header">PHYSICIAN CONSULTATION NOTE</div>
-                <p style="font-style: italic; color: #475569;">
-                    The vision engine has identified morphology consistent with <b>{res['class'].lower()}</b> cells. 
-                    {'🚨 Immediate pathological verification required.' if res['class'] == 'Parasitized' else '✅ No immediate parasitic markers detected.'}
+                <p style="font-style: italic; color: #475569; line-height: 1.6;">
+                    {res['summary']}
                 </p>
             </div>
         """, unsafe_allow_html=True)
     else:
         st.info("Awaiting patient sample for analysis...")
 
-# --- 5. FOOTER ---
+# --- 6. FOOTER ---
 st.divider()
 st.markdown(
     """
