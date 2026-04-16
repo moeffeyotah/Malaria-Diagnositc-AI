@@ -89,15 +89,7 @@ def generate_clinical_report(diagnosis, conf_pct, age, travel, symptoms, triage_
         return chat_completion.choices[0].message.content
     except Exception as e:
         return f"CONNECTION ERROR: LLM Synthesis failed. Details: {str(e)}"
-
 # --- 3. ASSET LOADING & MODEL INITIALIZATION ---
-# Dictionary to store layer activations for the XAI Heatmap
-activation = {}
-def get_activation(name):
-    def hook(model, input, output):
-        activation[name] = output.detach()
-    return hook
-
 @st.cache_resource
 def load_clinical_model():
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -122,7 +114,13 @@ def load_clinical_model():
     model.to(device)
     model.eval()
     
-    # Register hook on the last convolutional layer for the XAI Heatmap
+    # FAttach the activation dictionary directly to the cached model object
+    model.activations = {}
+    def get_activation(name):
+        def hook(module, input, output):
+            model.activations[name] = output.detach()
+        return hook
+    
     model.layer4.register_forward_hook(get_activation('layer4'))
     
     return model, device
@@ -135,19 +133,15 @@ inference_transforms = transforms.Compose([
     transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
 ])
 
-# --- FEATURE 1 & 3: XAI HEATMAP & PDF GENERATION ---
 def generate_heatmap(original_image, act_map):
-    # Process activation map into a heatmap
     heatmap = torch.mean(act_map.squeeze(), dim=0).cpu().numpy()
-    heatmap = np.maximum(heatmap, 0) # ReLU
-    heatmap /= np.max(heatmap) # Normalize
+    heatmap = np.maximum(heatmap, 0) 
+    heatmap /= np.max(heatmap) 
     
-    # Resize to match original image
     original_cv = np.array(original_image)
     heatmap_resized = cv2.resize(heatmap, (original_cv.shape[1], original_cv.shape[0]))
     heatmap_colored = cv2.applyColorMap(np.uint8(255 * heatmap_resized), cv2.COLORMAP_JET)
     
-    # Overlay heatmap on original image
     overlay = cv2.addWeighted(cv2.cvtColor(original_cv, cv2.COLOR_RGB2BGR), 0.6, heatmap_colored, 0.4, 0)
     return Image.fromarray(cv2.cvtColor(overlay, cv2.COLOR_BGR2RGB))
 
