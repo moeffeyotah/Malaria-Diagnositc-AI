@@ -170,21 +170,28 @@ with col_input:
     else:
         sample_dir = "clean_cell_images" 
         if os.path.exists(sample_dir):
-            sample_files = []
-            # Walk through subdirectories (Parasitized and Uninfected)
-            for root, dirs, files in os.walk(sample_dir):
-                for f in files:
-                    if f.lower().endswith(('.png', '.jpg', '.jpeg')):
-                        rel_path = os.path.relpath(os.path.join(root, f), sample_dir)
-                        sample_files.append(rel_path)
+            # UX UPDATE: Cascading Dropdowns for Category -> Image Selection
+            categories = [d for d in os.listdir(sample_dir) if os.path.isdir(os.path.join(sample_dir, d))]
             
-            if sample_files:
-                selected_sample = st.selectbox("Select a sample from the database:", sorted(sample_files))
-                image_path = os.path.join(sample_dir, selected_sample)
-                image = Image.open(image_path).convert('RGB')
-                file_id = selected_sample
+            if categories:
+                cat_col, img_col = st.columns(2)
+                
+                with cat_col:
+                    selected_category = st.selectbox("1. Select Cell Class:", sorted(categories))
+                
+                category_path = os.path.join(sample_dir, selected_category)
+                sample_files = [f for f in os.listdir(category_path) if f.lower().endswith(('.png', '.jpg', '.jpeg'))]
+                
+                with img_col:
+                    if sample_files:
+                        selected_file = st.selectbox("2. Select Sample ID:", sorted(sample_files))
+                        image_path = os.path.join(category_path, selected_file)
+                        image = Image.open(image_path).convert('RGB')
+                        file_id = f"{selected_category}/{selected_file}"
+                    else:
+                        st.warning(f"No images found in {selected_category}.")
             else:
-                st.warning("⚠️ No valid images found inside the database folders.")
+                st.warning("⚠️ No subfolders (Parasitized/Uninfected) found.")
         else:
             st.warning("⚠️ The clinical database folder was not found in the repository.")
 
