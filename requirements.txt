@@ -1,5 +1,8 @@
+streamlit
 torch
 torchvision
 pillow
+pandas
 groq
-streamlit
+fpdf
+opencv-python-headless
